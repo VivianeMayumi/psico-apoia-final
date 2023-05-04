@@ -1,10 +1,7 @@
 package com.psico.apoia.app.service.impl;
 
-import com.psico.apoia.app.common.Paciente;
 import com.psico.apoia.app.common.Psicologo;
-import com.psico.apoia.app.entity.PacienteEntity;
 import com.psico.apoia.app.entity.PsicologoEntity;
-import com.psico.apoia.app.mapper.PacienteMapper;
 import com.psico.apoia.app.mapper.PsicologoMapper;
 import com.psico.apoia.app.repository.PsicologoRepository;
 import com.psico.apoia.app.service.IPsicologoService;

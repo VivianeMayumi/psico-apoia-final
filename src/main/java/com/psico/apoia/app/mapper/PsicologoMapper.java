@@ -1,6 +1,4 @@
 package com.psico.apoia.app.mapper;
-import com.psico.apoia.app.common.Paciente;
-import com.psico.apoia.app.entity.PacienteEntity;
 import com.psico.apoia.app.entity.PsicologoEntity;
 import com.psico.apoia.app.common.Psicologo;
 import org.mapstruct.Mapper;
