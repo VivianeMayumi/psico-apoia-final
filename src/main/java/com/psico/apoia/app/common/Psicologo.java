@@ -1,17 +1,27 @@
 package com.psico.apoia.app.common;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 
 public class Psicologo {
 
+    @JsonProperty
     private Integer idUsuario;
+    @JsonProperty
     private String nome;
+    @JsonProperty
     private Date dataNascimento;
+    @JsonProperty
     private String numeroCrp;
+    @JsonProperty
     private String numeroCpf;
+    @JsonProperty
     private String numeroRg;
+    @JsonProperty
     private String email;
+    @JsonProperty
     private String telefone;
 
     public Integer getIdUsuario() {
