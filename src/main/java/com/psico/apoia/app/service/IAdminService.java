@@ -2,11 +2,19 @@ package com.psico.apoia.app.service;
 
 import com.psico.apoia.app.common.Admin;
 
-public interface IAdminService extends IPacienteService {
-    // TODO extender a interface service de psicólogo ou inserir os métodos necessários
+import java.util.List;
+
+public interface IAdminService {
+    // TODO inserir os métodos necessários p/ gerenciamento de psicólogos e pacientes
 
     public Admin criarAdmin(Admin admin);
 
     public Admin atualizarAdmin(Admin admin);
+
+    public void deletarAdmin(String email);
+
+    public List<Admin> obterAdminPorEmail(String email);
+
+    public List<Admin> obterAdminPorNome(String nome);
 
 }

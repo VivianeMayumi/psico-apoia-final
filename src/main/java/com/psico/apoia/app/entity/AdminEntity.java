@@ -15,6 +15,7 @@ import lombok.Setter;
 public class AdminEntity {
 
     @Id
+    private String email;
     private String cpf;
     private String nome;
 
