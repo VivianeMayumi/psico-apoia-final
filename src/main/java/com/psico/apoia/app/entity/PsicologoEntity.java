@@ -24,4 +24,8 @@ public class PsicologoEntity {
     private String numeroRg;
     private String email;
     private String telefone;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
+    private EnderecoEntity endereco;
 }
