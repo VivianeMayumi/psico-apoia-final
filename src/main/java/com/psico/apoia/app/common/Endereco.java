@@ -5,27 +5,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
 @NoArgsConstructor
-public class Paciente {
+public class Endereco {
 
     @JsonProperty
-    private Integer id;
+    private int cep;
     @JsonProperty
-    private String nome;
+    private String uf;
     @JsonProperty
-    private LocalDate dataNascimento;
+    private String cidade;
     @JsonProperty
-    private String numeroCpf;
+    private String bairro;
     @JsonProperty
-    private String numeroRg;
+    private String logradouro;
     @JsonProperty
-    private String email;
+    private int numeroResidencia;
     @JsonProperty
-    private String telefone;
-    @JsonProperty
-    private Endereco endereco;
+    private String complemento;
 }

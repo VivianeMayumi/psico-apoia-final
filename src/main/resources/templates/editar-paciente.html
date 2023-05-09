@@ -1,0 +1,42 @@
+<form action="#" th:action="@{/atualizar-paciente/{id}(id=${paciente.id})}" th:object="${paciente}" method="post">
+    <label for="nome">Nome</label>
+    <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+    <label for="dataNascimento">Data de Nascimento</label>
+    <input type="text" th:field="*{dataNascimento}" id="dataNascimento" placeholder="Data de Nascimento">
+    <span th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"></span>
+    <label for="cpf">CPF</label>
+    <input type="text" th:field="*{numeroCpf}" id="cpf" placeholder="CPF">
+    <span th:if="${#fields.hasErrors('numeroCpf')}" th:errors="*{numeroCpf}"></span>
+    <label for="rg">RG</label>
+    <input type="text" th:field="*{numeroRg}" id="rg" placeholder="RG">
+    <span th:if="${#fields.hasErrors('numeroRg')}" th:errors="*{numeroRg}"></span>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    <label for="telefone">Telefone</label>
+    <input type="text" th:field="*{telefone}" id="telefone" placeholder="Telefone">
+    <span th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></span>
+    <label for="cep">Cep</label>
+    <input type="text" th:field="*{endereco.cep}" id="cep" placeholder="Cep">
+    <span th:if="${#fields.hasErrors('endereco.cep')}" th:errors="*{endereco.cep}"></span>
+    <label for="uf">UF</label>
+    <input type="text" th:field="*{endereco.uf}" id="uf" placeholder="UF">
+    <span th:if="${#fields.hasErrors('endereco.uf')}" th:errors="*{endereco.uf}">
+    </span><label for="cidade">Cidade</label>
+    <input type="text" th:field="*{endereco.cidade}" id="cidade" placeholder="Cidade">
+    <span th:if="${#fields.hasErrors('endereco.cidade')}" th:errors="*{endereco.cidade}"></span>
+    <label for="bairro">Bairro</label>
+    <input type="text" th:field="*{endereco.bairro}" id="bairro" placeholder="Bairro">
+    <span th:if="${#fields.hasErrors('endereco.bairro')}" th:errors="*{endereco.bairro}"></span>
+    <label for="logradouro">Logradouro</label>
+    <input type="text" th:field="*{endereco.logradouro}" id="logradouro" placeholder="Logradouro">
+    <span th:if="${#fields.hasErrors('endereco.logradouro')}" th:errors="*{endereco.logradouro}"></span>
+    <label for="numeroResidencia">NumeroResidencia</label>
+    <input type="text" th:field="*{endereco.numeroResidencia}" id="numeroResidencia" placeholder="Email">
+    <span th:if="${#fields.hasErrors('endereco.numeroResidencia')}" th:errors="*{endereco.numeroResidencia}"></span>
+    <label for="complemento">Complemento</label>
+    <input type="text" th:field="*{endereco.complemento}" id="complemento" placeholder="Complemento">
+    <span th:if="${#fields.hasErrors('endereco.complemento')}" th:errors="*{endereco.complemento}"></span>
+    <input type="submit" value="Add User">
+</form>
