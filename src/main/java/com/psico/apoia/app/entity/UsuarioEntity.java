@@ -1,31 +1,28 @@
-package com.psico.apoia.app.common;
+package com.psico.apoia.app.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "usuario")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Paciente {
+public class UsuarioEntity {
 
-    @JsonProperty
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @JsonProperty
     private String nome;
-    @JsonProperty
     private LocalDate dataNascimento;
-    @JsonProperty
     private String numeroCpf;
-    @JsonProperty
     private String numeroRg;
-    @JsonProperty
     private String email;
-    @JsonProperty
     private String telefone;
-    @JsonProperty
-    private Endereco endereco;
+    private String senha;
+
 }

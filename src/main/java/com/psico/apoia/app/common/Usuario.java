@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Paciente {
+public class Usuario {
 
     @JsonProperty
     private Integer id;
@@ -27,5 +27,10 @@ public class Paciente {
     @JsonProperty
     private String telefone;
     @JsonProperty
-    private Endereco endereco;
+    private String senha;
+
+    public Usuario(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
+    }
 }
