@@ -6,37 +6,51 @@ import com.psico.apoia.app.mapper.PsicologoMapper;
 import com.psico.apoia.app.repository.PsicologoRepository;
 import com.psico.apoia.app.service.IPsicologoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class PsicologoServiceImpl implements IPsicologoService {
 
     @Autowired
     private PsicologoRepository psicologoRepository;
 
+    @Autowired
+    private PsicologoMapper psicologoMapper;
+
+
+    public Psicologo obterPsicologoPorid(Integer id){
+        Optional<PsicologoEntity> optionalPsicologo = psicologoRepository.findById(id);
+        return optionalPsicologo.map(psicologo ->{
+            return psicologoMapper.psicologoEntityToPsicologo(psicologo);
+        }).orElse(null);
+    }
+
 
     @Override
-    public Psicologo criarPsicologo(Psicologo psicologo) {
-        PsicologoEntity psicologoEntity = PsicologoMapper.INSTANCE.psicologToPsicologoEntity(psicologo);
+        public Psicologo criarPsicologo(Psicologo psicologo) {
+        PsicologoEntity psicologoEntity = psicologoMapper.psicologoToPsicologoEntity(psicologo);
         psicologoRepository.save(psicologoEntity);
-        return PsicologoMapper.INSTANCE.psicologoEntityToPsicologo(psicologoEntity);
+        return psicologoMapper.psicologoEntityToPsicologo(psicologoEntity);
     }
+
 
     @Override
     public List<Psicologo> obterPsicologoPorNome(String nome) {
         List<PsicologoEntity> listaPsicologo = psicologoRepository.findByNomeContainingIgnoreCase(nome);
-        return PsicologoMapper.INSTANCE.psicologoEntityToPsicologo(listaPsicologo);
+        if(listaPsicologo.isEmpty()){
+            try{
+                throw new PsicologoNaoEncontradoException("Não foram encontrados psicólogos com o nome informado.");
+            }catch(PsicologoNaoEncontradoException e ){
+                throw new RuntimeException(e);
+            }
+        }
+
+        return psicologoMapper.psicologoEntityToPsicologo(listaPsicologo);
     }
 
 
-
-    @Override
-    public Psicologo atualizarPsicologo(Psicologo psicologo) {
-        return null;
-    }
-
-    @Override
-    public void deletarPsicologo(Integer idPsicologo) {
-
-    }
 }
