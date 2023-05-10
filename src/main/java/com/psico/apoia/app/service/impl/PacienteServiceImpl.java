@@ -40,6 +40,8 @@ public class PacienteServiceImpl implements IPacienteService {
         return pacienteMapper.pacienteEntityToPaciente(pacienteEntity);
     }
 
+
+
     @Override
     public List<Paciente> obterPacientePorNome(String nome) {
         List<PacienteEntity> listaPacientes = pacienteRepository.findByNomeContainingIgnoreCase(nome);
