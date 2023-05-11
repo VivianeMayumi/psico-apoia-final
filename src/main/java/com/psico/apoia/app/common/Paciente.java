@@ -28,4 +28,6 @@ public class Paciente {
     private String telefone;
     @JsonProperty
     private Endereco endereco;
+    @JsonProperty
+    private Integer idUsuario;
 }
