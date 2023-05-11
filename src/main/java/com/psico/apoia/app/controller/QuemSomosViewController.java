@@ -5,10 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeViewController {
+public class QuemSomosViewController {
 
-    @GetMapping("/carregar-home")
-    public String carregarHome(Model model) {
-        return "home";
+    @GetMapping("/carregar-quem-somos")
+    public String carregarQuemSomos(Model model) {
+        return "quem_somos";
     }
 }

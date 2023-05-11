@@ -3,9 +3,11 @@ package com.psico.apoia.app.service.impl;
 import com.psico.apoia.app.common.Paciente;
 import com.psico.apoia.app.entity.EnderecoEntity;
 import com.psico.apoia.app.entity.PacienteEntity;
+import com.psico.apoia.app.entity.UsuarioEntity;
 import com.psico.apoia.app.mapper.EnderecoMapper;
 import com.psico.apoia.app.mapper.PacienteMapper;
 import com.psico.apoia.app.repository.PacienteRepository;
+import com.psico.apoia.app.repository.UsuarioRepository;
 import com.psico.apoia.app.service.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,9 @@ public class PacienteServiceImpl implements IPacienteService {
 
     @Autowired
     private PacienteRepository pacienteRepository;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     @Autowired
     private PacienteMapper pacienteMapper;
@@ -36,10 +41,11 @@ public class PacienteServiceImpl implements IPacienteService {
 
     public Paciente criarPaciente(Paciente paciente) {
         PacienteEntity pacienteEntity = pacienteMapper.pacienteToPacienteEntity(paciente);
+        Optional<UsuarioEntity> optionalUsuarioEntity = usuarioRepository.findById(paciente.getIdUsuario());
+        optionalUsuarioEntity.ifPresent(pacienteEntity::setUsuario);
         pacienteRepository.save(pacienteEntity);
         return pacienteMapper.pacienteEntityToPaciente(pacienteEntity);
     }
-
 
 
     @Override
