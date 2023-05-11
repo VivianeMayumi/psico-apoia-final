@@ -1,11 +1,10 @@
 package com.psico.apoia.app.common;
+import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.util.Date;
 
 @Getter
 @Setter
