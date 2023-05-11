@@ -19,7 +19,7 @@ public class PsicologoController {
         return psicologoService.criarPsicologo(psicologo);
     }
 
-    @GetMapping(value = "/psicologo/{nome}", produces = "application/json")
+    @GetMapping(value = "/psicologos/{nome}", produces = "application/json")
     public List<Psicologo> obterPorNome(@PathVariable("nome") String nomePsicologo) {
         return psicologoService.obterPsicologoPorNome(nomePsicologo);
     }
