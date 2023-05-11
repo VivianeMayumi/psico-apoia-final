@@ -2,7 +2,6 @@ body{
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    overflow-x: hidden;
 }
 ul{
 padding: 0px;
@@ -66,13 +65,12 @@ main{
 .header-3{
     background-color: #EB980A;
     width: 100%;
-    height: 900px;     
-     
+    height: 900px;    
 }
 .logo-home{
     float: right;
     width: 68%;
-    margin-left: 100px;
+    margin-left: 350px;
 }
 
 #quem-somos{
@@ -82,7 +80,7 @@ main{
     text-transform: uppercase;
     margin-left: 480px;
     padding-top: 100px;
-    
+
 }
 #quem-somos-tx{
     color: #FFE9C3;
@@ -94,7 +92,7 @@ main{
     margin-left: 480px;
     margin-block: 20px;
     padding-top: 20px;
-    
+
 }
 #link{
     color: #FFE9C3;
@@ -114,7 +112,7 @@ main{
     color:#FFE9C3;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 810px; 
+    margin-left: 810px;
 }
 #contato-tx{
     color: #FFE9C3;
@@ -129,22 +127,24 @@ main{
 }
 #rodape{
     background-color: #F08700;
-    padding: 1px 
+    padding: 1px
+
+
 }
 #email-1{
    font-family: Arial, Helvetica, sans-serif;
    color: #FFE9C3;
-   margin-left: 30px;       
+   margin-left: 30px;
 }
 #email-2{
     font-family: Arial, Helvetica, sans-serif;
     color: #FFE9C3;
-    margin-left: 30px;       
+    margin-left: 30px;
 }
 #copyright{
    font-family: Arial, Helvetica, sans-serif;
-   color: #FFE9C3;  
-   margin-left: 1600px;          
+   color: #FFE9C3;
+   margin-left: 1600px;
 }
 #doacao{
     color: #FFE9C3;
@@ -153,10 +153,10 @@ main{
     text-transform: uppercase;
     margin-left: 480px;
     padding-top: 100px;
-    
+
 }
 #contato-rodape{
-    margin-left: 30px;   
+    margin-left: 30px;
     color: #FFE9C3;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
@@ -166,7 +166,7 @@ main{
     margin-left: 480px;
 }
 .menu-lateral{
-    
+
 }
 .header-4{
     width: 20%;
@@ -188,8 +188,8 @@ main{
 
 .menu-lateral ul li{
     display: inline-block;
-    color: #F08700; 
-    margin-left: 200px;  
+    color: #F08700;
+    margin-left: 200px;
     margin-top: 0;
     padding-top: 8%;
 }
@@ -201,7 +201,7 @@ main{
     text-decoration: none;
     font-size: 18px;
     text-transform: capitalize;
-    font-family: Arial, Helvetica, sans-serif;   
+    font-family: Arial, Helvetica, sans-serif;
 }
 hr{
    border-color: #F08700;
@@ -274,4 +274,5 @@ h1{
 .form-content.error a {
     color: #F00000;
 }
+
 
