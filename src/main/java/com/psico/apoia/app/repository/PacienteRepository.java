@@ -8,4 +8,5 @@ import java.util.List;
 public interface PacienteRepository extends CrudRepository<PacienteEntity, Integer> {
 
     List<PacienteEntity> findByNomeContainingIgnoreCase(String nome);
+    PacienteEntity findByUsuarioId(Integer idUsuario);
 }
