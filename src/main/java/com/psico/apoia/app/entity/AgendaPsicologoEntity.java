@@ -4,10 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "agendaPsicologo")
@@ -23,6 +23,9 @@ public class AgendaPsicologoEntity {
     private LocalDate data;
     private LocalDateTime hora;
     private boolean statusDoAgendamento;
+
+    @ElementCollection
+    private List<LocalDate> dataDisponivel;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "psicologo_id", referencedColumnName = "id")
     private PsicologoEntity psicologo;

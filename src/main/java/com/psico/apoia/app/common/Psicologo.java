@@ -27,6 +27,8 @@ public class Psicologo{
     private String email;
     @JsonProperty
     private String telefone;
+    @JsonProperty
+    private Endereco endereco;
 
 
 }
