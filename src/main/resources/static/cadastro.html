@@ -30,7 +30,6 @@
             <ul>
                 <li><a href="">HOME</a></li>
                 <li><a href="">QUEM SOMOS</a></li>
-                <li><a href="">CADASTRO</a></li>
                 <li><a href="">CONTATO</a></li>
                 <li><a href="">LOGIN</a></li>
             </ul>
@@ -42,6 +41,14 @@
     <div class="form-container">
         <div class="form-cadastro">
             <form>
+                <div class="form-group-1">
+                    <label for="usuario">Usuário:</label>
+                    <input id="usuario" name="usuario" type="text" th:field="*{usuario}"/>
+                    <label for="senha">Senha:</label>
+                    <input id="senha" name="senha" type="password" th:field="*{senha}"/>
+                    <label for="senha2">Confirmação Senha:</label>
+                    <input id="senha2" name="senha2" type="password" th:field="*{senhaConfirmacao}"/>
+                </div>
                 <div class="form-group">
                     <label for="nome_completo">Nome completo:</label>
                     <input id="nome_completo" name="nome_completo" type="text"/>
@@ -58,9 +65,11 @@
                     <label for="email">E-mail:</label>
                     <input id="email" name="email" type="email"/>
                 </div>
-                <div class="form-group">
+                <div class="form-group-1">
                     <label for="telefone">Telefone com DDD:</label>
-                    <input id="telefone" name="telefone" type="text"/>
+                    <input class="form-group-1-inputs" id="telefone" name="telefone" type="tel"/>
+                    <label for="celular">Celular com DDD:</label>
+                    <input class="form-group-1-inputs" id="celular" name="celular" type="tel"/>
                 </div>
                 <div class="form-group-1">
                     <label for="cep">CEP:</label>
@@ -83,11 +92,28 @@
                 <div class="form-group button-group">
                     <button type="reset">Limpar</button>
                     <button class="submit-btn" type="submit">Salvar</button>
-                    <button class="alterar-btn" type="button">Alterar dados</button>
                 </div>
             </form>
         </div>
     </div>
+</div>
+<div id="rodape">
+    <p id="contato-rodape">
+        Contato
+    </p>
+    <p id="email-1">
+        Seja um profissional voluntário
+        <br>
+        <a href="">voluntariado@psicoapoia.org.br</a>
+    </p>
+    <p id="email-2">
+        Suporte ao paciente
+        <br>
+        <a href="">suporte@psicoapoia.org.br</a>
+    </p>
+    <small id="copyright">
+        ₢ Psico Apoia. Todos os Direitos Reservados
+    </small>
 </div>
 </body>
 </html>

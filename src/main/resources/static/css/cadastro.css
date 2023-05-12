@@ -176,12 +176,7 @@ input {
   border-radius: 5px;
   padding: 6px;
    width: 100%;
-   max-width: 40em;
    height: auto;
-}
-
-#nome_completo {
-  width: 700px;
 }
 
 .button-group button {
@@ -194,3 +189,37 @@ input {
   cursor: pointer;
 }
 
+#rodape{
+    background-color: #F08700;
+    padding: 1px
+}
+#email-1{
+   font-family: Arial, Helvetica, sans-serif;
+   color: #FFE9C3;
+   margin-left: 30px;
+}
+#email-2{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFE9C3;
+    margin-left: 30px;
+}
+#copyright{
+   font-family: Arial, Helvetica, sans-serif;
+   color: #FFE9C3;
+   margin-left: 1600px;
+}
+#doacao{
+    color: #FFE9C3;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    margin-left: 480px;
+    padding-top: 100px;
+
+}
+#contato-rodape{
+    margin-left: 30px;
+    color: #FFE9C3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
