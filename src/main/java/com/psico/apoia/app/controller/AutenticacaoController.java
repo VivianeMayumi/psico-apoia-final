@@ -22,15 +22,4 @@ public class AutenticacaoController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/alterar-senha")
-    public ResponseEntity<?> alterarSenha(@RequestParam String email, @RequestParam String senhaAntiga,
-                                          @RequestParam String senhaNova) {
-        try {
-            autenticacaoService.alterarSenha(email, senhaAntiga, senhaNova);
-            return ResponseEntity.ok().build();
-        } catch (SenhaInvalidaException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
-
 }

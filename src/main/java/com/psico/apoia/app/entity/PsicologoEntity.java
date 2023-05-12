@@ -16,7 +16,7 @@ public class PsicologoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idUsuario;
+    private Integer id;
     private String nome;
     private Date dataNascimento;
     private String numeroCrp;
