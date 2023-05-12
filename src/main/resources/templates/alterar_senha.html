@@ -1,0 +1,127 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <title>Psico Apoia</title>
+
+</head>
+<body>
+<header class="menu-principal">
+    <main>
+        <div class="header-1">
+
+            <div class="logo">
+                <img src="./img/logo_psico_apoia.png"/>
+            </div>
+            <div class="redes-sociais">
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="./img/logo_instagram.png"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/logo_twitter.png"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</header>
+<main class="col-100 menu-urls">
+    <div class="header-2">
+        <div class="menu">
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">QUEM SOMOS</a></li>
+                <li><a href="">CONTATO</a></li>
+                <li><a href="logout">LOGOUT</a></li>
+            </ul>
+        </div>
+
+    </div>
+</main>
+<div class="header-3">
+    <div class="container">
+        <section>
+            <h1>Alterar senha</h1>
+        </section>
+        <p th:text=${mensagemErro}></p>
+        <form id="form" class="form" action="#" th:action="@{/alterar-senha}" method="post">
+            <div class="form-content">
+                <label for="att_password">Senha atual</label>
+                <input
+                        type="password"
+                        id="att_password"
+                        placeholder="digite aqui a senha atual"
+                        th:field="*{alteracaoSenha.senhaAtual}"
+                />
+                <a>Aqui vai a mensagem de erro</a>
+            </div>
+            <div class="form-content">
+                <label for="new_password">Nova senha</label>
+                <input
+                        type="password"
+                        id="new_password"
+                        placeholder="digite aqui a nova senha"
+                        th:field="*{alteracaoSenha.senha}"
+                />
+                <a>Aqui vai a mensagem de erro</a>
+            </div>
+            <div class="form-content">
+                <label for="confirm">Confirmar nova senha</label>
+                <input
+                        type="password"
+                        id="confirm"
+                        placeholder="Confirme a nova senha"
+                        th:field="*{alteracaoSenha.senhaConfirmacao}"
+                />
+                <a>Aqui vai a mensagem de erro</a>
+            </div>
+            <button type="save">Salvar</button>
+        </form>
+    </div>
+    <div class="header-4">
+        <div class="menu-lateral">
+            <div class="icone-usuario">
+                <img src="./img/icone_usuario.png"/>
+            </div>
+            <p id="usuario" th:text=${session.usuario.nome}>
+
+            </p>
+            <ul>
+                <li><a href="">Meu Cadastro</a></li>
+                <hr>
+                <li><a href="">Aleterar Senha</a></li>
+                <hr>
+                <li><a href="">Agendamento</a></li>
+                <hr>
+                <li><a href="">Excluir Conta</a></li>
+                <hr>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="rodape">
+    <p id="contato-rodape">
+        Contato
+    </p>
+    <p id="email-1">
+        Seja um profissional voluntário
+        <br>
+        <a href="">voluntariado@psicoapoia.org.br</a>
+    </p>
+    <p id="email-2">
+        Suporte ao paciente
+        <br>
+        <a href="">suporte@psicoapoia.org.br</a>
+    </p>
+    <small id="copyright">
+        ₢ Psico Apoia. Todos os Direitos Reservados
+    </small>
+</div>
+</main>
+</body>
+</html>
