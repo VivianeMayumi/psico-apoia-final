@@ -12,7 +12,7 @@ import lombok.Setter;
 public class Psicologo{
 
     @JsonProperty
-    private Integer idUsuario;
+    private Integer id;
     @JsonProperty
     private String nome;
     @JsonProperty
