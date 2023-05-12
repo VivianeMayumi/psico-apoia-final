@@ -1,11 +1,11 @@
 package com.psico.apoia.app.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.psico.apoia.app.common.AgendaPsicologo;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -20,11 +20,9 @@ public class AgendaPsicologoEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idAgendaPsicologo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "agenda_psicologo_id")
-    private AgendaPsicologo agendaPsicologo;
     private LocalDate data;
-    private LocalDateTime horaDoAgendamento;
+    private LocalDateTime hora;
+    private boolean statusDoAgendamento;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "psicologo_id", referencedColumnName = "id")
     private PsicologoEntity psicologo;
@@ -32,7 +30,6 @@ public class AgendaPsicologoEntity {
     @JoinColumn(name = "paciente_id", referencedColumnName = "id")
     private PacienteEntity paciente;
 
-    private boolean statusDoAgendamento;
 
 
 

@@ -1,6 +1,5 @@
 package com.psico.apoia.app.repository;
 
-import com.psico.apoia.app.common.AgendaPsicologo;
 import com.psico.apoia.app.entity.AgendaPsicologoEntity;
 import org.springframework.data.repository.CrudRepository;
 
@@ -12,5 +11,4 @@ public interface AgendaPsicologoRepository extends CrudRepository<AgendaPsicolog
 
     List<AgendaPsicologoEntity> findByDataBetween(LocalDate dataInicio, LocalDate dataFim);
 
-    List<AgendaPsicologoEntity> findByAgendaPsicologo(AgendaPsicologo agendaPsicologo);
 }

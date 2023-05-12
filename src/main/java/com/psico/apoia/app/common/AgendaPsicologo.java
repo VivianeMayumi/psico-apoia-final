@@ -20,7 +20,7 @@ public class AgendaPsicologo {
     @JsonProperty
     private LocalDate data;
     @JsonProperty
-    private LocalDateTime horaDoAgendamento;
+    private LocalDateTime hora;
     @JsonProperty
     private Psicologo psicologo;
     @JsonProperty
