@@ -23,7 +23,7 @@ public class PsicologoServiceImpl implements IPsicologoService {
     private PsicologoMapper psicologoMapper;
 
 
-    public Psicologo obterPsicologoPorid(Integer id){
+    public Psicologo obterPsicologoPorId(Integer id){
         Optional<PsicologoEntity> optionalPsicologo = psicologoRepository.findById(id);
         return optionalPsicologo.map(psicologo ->{
             return psicologoMapper.psicologoEntityToPsicologo(psicologo);
@@ -34,6 +34,7 @@ public class PsicologoServiceImpl implements IPsicologoService {
     @Override
         public Psicologo criarPsicologo(Psicologo psicologo) {
         PsicologoEntity psicologoEntity = psicologoMapper.psicologoToPsicologoEntity(psicologo);
+        PsicologoEntity psicologoCriado = psicologoRepository.save(psicologoEntity);
         psicologoRepository.save(psicologoEntity);
         return psicologoMapper.psicologoEntityToPsicologo(psicologoEntity);
     }
@@ -50,6 +51,11 @@ public class PsicologoServiceImpl implements IPsicologoService {
         throw  new PsicologoNaoEncontradoException("Não foi possível encontrar um psicólogo cadastrado com o nome " + nome +
                 ". Por favor, verifique se o nome foi digitado corretamente e tente novamente.");
 
+    }
+
+    @Override
+    public Iterable<PsicologoEntity> obterTodosOsPsicologos() {
+        return psicologoRepository.findAll();
     }
 
 
