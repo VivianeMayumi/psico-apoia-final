@@ -1,33 +1,30 @@
-<nav th:fragment="cabecalho">
-    <header class="menu-principal">
-        <div class="header-1">
-            <div class="logo">
-                <img alt="Logo do Psico Apoia" src="./img/logo_psico_apoia.png"/>
-            </div>
-            <div class="redes-sociais">
-                <ul>
-                    <li>
-                        <a href="">
-                            <img alt="Ícone do Instagram" src="./img/logo_instagram.png"/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img alt="Ícone do Twitter" src="./img/logo_twitter.png"/>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+<nav class="menu-principal" th:fragment="cabecalho">
+    <div class="header-1">
+        <div class="logo">
+            <img alt="Logo do Psico Apoia" src="./img/logo_psico_apoia.png"/>
         </div>
-        <div class="header-2">
-            <div class="menu">
-                <ul>
-                    <li><a href="/carregar-home">HOME</a></li>
-                    <li><a href="/carregar-quem-somos">QUEM SOMOS</a></li>
-                    <li><a href="/carregar-cadastro">CADASTRO</a></li>
-                    <li><a href="/carregar-login">LOGIN</a></li>
-                </ul>
-            </div>
+        <div class="redes-sociais">
+            <ul>
+                <li>
+                    <a href="">
+                        <img alt="Ícone do Instagram" src="./img/logo_instagram.png"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img alt="Ícone do Twitter" src="./img/logo_twitter.png"/>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </header>
+    </div>
+    <div class="header-2">
+        <div class="menu">
+            <ul>
+                <li><a href="/carregar-home">HOME</a></li>
+                <li><a href="/carregar-quem-somos">QUEM SOMOS</a></li>
+                <li><a href="/carregar-login">LOGIN</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
