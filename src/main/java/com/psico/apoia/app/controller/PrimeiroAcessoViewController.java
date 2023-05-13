@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class CadastroViewController {
+public class PrimeiroAcessoViewController {
 
     @Autowired
     private ICadastroService cadastroService;
 
-    @GetMapping("/carregar-cadastro")
-    public String carregarCadastro(Model model) {
+
+    @GetMapping("/carregar-primeiro-acesso")
+    public String carregarPrimeiroAcesso(Model model) {
         model.addAttribute("usuario", new Usuario());
         return "cadastro";
     }

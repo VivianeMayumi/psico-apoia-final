@@ -83,26 +83,7 @@
             <button type="save">Salvar</button>
         </form>
     </div>
-    <div class="header-4">
-        <div class="menu-lateral">
-            <div class="icone-usuario">
-                <img src="./img/icone_usuario.png"/>
-            </div>
-            <p id="usuario" th:text=${session.usuario.nome}>
-
-            </p>
-            <ul>
-                <li><a href="">Meu Cadastro</a></li>
-                <hr>
-                <li><a href="">Aleterar Senha</a></li>
-                <hr>
-                <li><a href="">Agendamento</a></li>
-                <hr>
-                <li><a href="">Excluir Conta</a></li>
-                <hr>
-            </ul>
-        </div>
-    </div>
+    <div th:insert="~{menu_lateral :: menu_lateral}"></div>
 </div>
 <div id="rodape">
     <p id="contato-rodape">

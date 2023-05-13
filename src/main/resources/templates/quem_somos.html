@@ -1,41 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <link href="./css/main.css" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/quem_somos.css}" rel="stylesheet" />
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
     <title>Psico Apoia</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 
-<nav th:replace="~{cabecalho :: cabecalho}"></nav>
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
 
-<div class="header-3">
-    <p id="quem-somos">
-        Quem somos
-    </p>
-    <p id="quem-somos-tx">
-        Somos uma plataforma virtual de terapia psicológica gratuita com objetivo de promover a
-        saúde mental e o bem-estar das pessoas, oferecendo sessões de terapia psicológica semanais
-        de até 50 minutos cada, com duração máxima de três meses. Entendemos que enfrentar problemas
-        emocionais pode ser difícil e desafiador, mas acreditamos que todos merecem a oportunidade de
-        receber ajuda emocional. Nossa equipe é formada por profissionais voluntários cadastrados, que
-        se dedicam a ajudar aqueles que precisam.
-    </p>
-    <p id="quem-somos-tx">
-        Nossa missão é democratizar o acesso à saúde mental e promover a igualdade de oportunidades
-        para todos. Acreditamos que a terapia psicológica é uma ferramenta importante para a promoção
-        da saúde mental e do bem-estar, especialmente em um mundo cada vez mais conectado e digital.
-        Por isso, nossas sessões são oferecidas de forma totalmente virtual, permitindo que os pacientes
-        possam acessá-las de qualquer lugar e em qualquer momento.
-        Embora nossa plataforma seja gratuita, aceitamos doações para garantir que o site continue
-        funcionando e alcance um número ainda maior de pessoas.
-    </p>
-    <p>
-        <a id="link" href="">Clique aqui para fazer a sua doação</a>
-    </p>
-</div>
+    <div class="header-3">
+        <p class="quem-somos">
+            Quem somos
+        </p>
+        <p class="quem-somos-tx">
+            Somos uma plataforma virtual de terapia psicológica gratuita com objetivo de promover a
+            saúde mental e o bem-estar das pessoas, oferecendo sessões de terapia psicológica semanais
+            de até 50 minutos cada, com duração máxima de três meses. Entendemos que enfrentar problemas
+            emocionais pode ser difícil e desafiador, mas acreditamos que todos merecem a oportunidade de
+            receber ajuda emocional. Nossa equipe é formada por profissionais voluntários cadastrados, que
+            se dedicam a ajudar aqueles que precisam.
+        </p>
+        <p class="quem-somos-tx">
+            Nossa missão é democratizar o acesso à saúde mental e promover a igualdade de oportunidades
+            para todos. Acreditamos que a terapia psicológica é uma ferramenta importante para a promoção
+            da saúde mental e do bem-estar, especialmente em um mundo cada vez mais conectado e digital.
+            Por isso, nossas sessões são oferecidas de forma totalmente virtual, permitindo que os pacientes
+            possam acessá-las de qualquer lugar e em qualquer momento.
+            Embora nossa plataforma seja gratuita, aceitamos doações para garantir que o site continue
+            funcionando e alcance um número ainda maior de pessoas.
+        </p>
+        <p>
+            <a id="link" href="/carregar-doacao">Clique aqui para fazer a sua doação</a>
+        </p>
+    </div>
 
-<div th:replace="~{rodape :: rodape}"></div>
+    <div th:insert="~{rodape :: rodape}"></div>
 
 </body>
 </html>

@@ -47,32 +47,13 @@
         <div class="container">
           <form id="form" class="form">
             <div class="form-content">
-                <label>Deseja realmente excluir esta conta?</labe>
+                <label>Deseja realmente excluir esta conta?</label>
             </div>
             <button type="yes">Sim</button>
             <button type="back">Voltar</button>
           </form>
         </div>
-        <div class="header-4">
-            <div class="menu-lateral">
-                <div class="icone-usuario">
-                    <img src="./img/icone_usuario.png"/>
-                </div>
-                <p id="usuario">
-                    Julia Nogueira
-                </p>
-                    <ul>
-                        <li><a href="">Meu Cadastro</a></li>
-                        <hr>
-                        <li><a href="">Aleterar Senha</a></li>
-                        <hr>
-                        <li><a href="">Agendamento</a></li>
-                        <hr>
-                        <li><a href="">Excluir Conta</a></li>
-                        <hr>
-                    </ul> 
-            </div>
-        </div>
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
     </div> 
     <div id="rodape">
         <p id="contato-rodape">
