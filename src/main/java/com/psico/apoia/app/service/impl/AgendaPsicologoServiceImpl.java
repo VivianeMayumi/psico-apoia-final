@@ -28,6 +28,7 @@ public class AgendaPsicologoServiceImpl implements IAgendaPsicologoService {
         AgendaPsicologoEntity agenda = new AgendaPsicologoEntity();
         agenda.setPsicologo(psicologo);
         agenda.setStatusDoAgendamento(true);
+        agenda.setData(dataInicial);
         List<LocalDate> datasDisponiveis = new ArrayList<>();
         for (LocalDate data = dataInicial; !data.isAfter(dataFinal); data = data.plusDays(1)) {
             datasDisponiveis.add(data);
@@ -35,6 +36,7 @@ public class AgendaPsicologoServiceImpl implements IAgendaPsicologoService {
         agenda.setDataDisponivel(datasDisponiveis);
         return agenda;
     }
+
 
     @Override
     public List<LocalDate> buscarAgendaDisponivel(int mes, int ano, PsicologoEntity psicologo) {
