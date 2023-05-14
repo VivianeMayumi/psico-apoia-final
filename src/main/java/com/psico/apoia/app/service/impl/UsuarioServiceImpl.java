@@ -60,7 +60,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public void alterarSenha(String email, String senhaAntiga, String senhaNova, String senhaNovaConfirmacao) throws SenhaInvalidaException {
         UsuarioEntity usuarioEntity = usuarioRepository.findByUsuario(email);
         if (usuarioEntity.getSenha().equals(senhaAntiga)) {
-            if(senhaNova.equals(senhaNovaConfirmacao)) {
+            if (senhaNova.equals(senhaNovaConfirmacao)) {
                 usuarioEntity.setSenha(senhaNova);
                 usuarioRepository.save(usuarioEntity);
                 return;
@@ -72,5 +72,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
         }
     }
 
-    //criar referência a alterarPaciente em PacienteServiceImpl
+    @Override
+    public void deletarUsuario(String usuario) throws SenhaInvalidaException {
+        UsuarioEntity usuarioEntity = usuarioRepository.findByUsuario(usuario);
+        usuarioRepository.delete(usuarioEntity);
+    }
 }

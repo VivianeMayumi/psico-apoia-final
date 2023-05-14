@@ -8,33 +8,33 @@
 </head>
 <body>
 
-<nav th:insert="~{cabecalho :: cabecalho}"></nav>
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
 
-<div class="header-3">
-    <div class="form-container">
-        <div class="form-login">
-            <p th:if="${loginError}" style="color:red">Usuário e/ou senha incorretos</p>
-            <form action="#" th:action="@{/login}" th:object="${usuario}" method="post">
-                <div class="form-group">
-                    <img alt="Ícone de perfil" class="icone-perfil" src="./img/icone_usuario.png">
-                    <input id="login" name="login" placeholder="E-mail ou número de telefone" type="text"
-                           th:field="*{usuario}"/>
-                </div>
-                <div class="form-group">
-                    <input id="senha" name="senha" placeholder="Senha" type="password" th:field="*{senha}"/>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Login</button>
-                </div>
-                <div class="form-group">
-                    <a href="/carregar-primeiro-acesso">Primeiro Acesso</a>
-                </div>
-            </form>
+    <div class="header-3">
+        <div class="form-container">
+            <div class="form-login">
+                <p th:if="${loginError}" style="color:red">Usuário e/ou senha incorretos</p>
+                <form action="#" th:action="@{/login}" th:object="${usuario}" method="post">
+                    <div class="form-group">
+                        <img alt="Ícone de perfil" class="icone-perfil" src="./img/icone_usuario.png">
+                        <input id="login" name="login" placeholder="E-mail ou número de telefone" type="text"
+                               th:field="*{usuario}"/>
+                    </div>
+                    <div class="form-group">
+                        <input id="senha" name="senha" placeholder="Senha" type="password" th:field="*{senha}"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Login</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="/carregar-primeiro-acesso">Primeiro Acesso</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<div th:insert="~{rodape :: rodape}"></div>
+    <div th:insert="~{rodape :: rodape}"></div>
 
 </body>
 </html>

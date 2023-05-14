@@ -1,0 +1,41 @@
+<html lang="pt-BR">
+ <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/style_excluir_conta.css">
+    <title>Psico Apoia</title>
+
+ </head>
+ <body>
+
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+    <div class="header-3">
+        <div class="container">
+          <section>
+            <h1>Excluir conta</h1>
+          </section>
+          <form id="form" class="form" action="#" th:action="@{/carregar-confirmar-excluir-conta}" method="post">
+            <div class="form-content">
+                <label for="att_password">Digite sua senha</label>
+                <input
+                    type="password"
+                    id="att_password"
+                    placeholder="digite aqui a senha atual"
+                    th:field="*{usuario.senha}"
+                />
+                <p th:text=${mensagemErro}></p>
+            </div>
+            <div class="form-content">
+                <label for="new_password">Ao clicar no botão confirmar, você estará excluido sua conta permanentemente</label>
+            </div>
+            <button type="submit">Confirmar</button>
+            <button type="back">Voltar</button>
+          </form>
+        </div>
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
+    </div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
+ </body>       
+</html>
