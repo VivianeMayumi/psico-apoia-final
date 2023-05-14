@@ -17,6 +17,8 @@ public interface UsuarioMapper {
 
     Paciente usuarioToPaciente(Usuario usuario);
 
+    Usuario pacienteToUsuario(Paciente paciente);
+
     UsuarioEntity usuarioToUsuarioEntity(@MappingTarget UsuarioEntity usuarioTarget, Usuario usuarioSource);
 
     List<Usuario> usuarioEntityToUsuario(List<UsuarioEntity> usuariosEntity);
