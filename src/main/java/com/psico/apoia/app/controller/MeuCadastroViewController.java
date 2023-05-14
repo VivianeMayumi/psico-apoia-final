@@ -22,10 +22,10 @@ public class MeuCadastroViewController {
         return "meu_cadastro";
     }
 
-    /*@PostMapping("/atualizar-meu-cadastro")
+    @PostMapping("/atualizar-meu-cadastro")
     public String alterarCadastro(HttpSession session, Model model, Usuario usuario){
         Usuario usuarioAtualizado = usuarioService.alterarUsuario(usuario);
         session.setAttribute("usuario", usuarioAtualizado);
         return "meu_cadastro";
-    }*/
+    }
 }
