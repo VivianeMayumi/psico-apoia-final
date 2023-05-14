@@ -71,4 +71,6 @@ public class UsuarioServiceImpl implements IUsuarioService {
             throw new SenhaInvalidaException("Senha antiga inválida!");
         }
     }
+
+    //criar referência a alterarPaciente em PacienteServiceImpl
 }
