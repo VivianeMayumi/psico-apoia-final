@@ -3,59 +3,13 @@ body{
     height: 100%;
     margin: 0 auto;
 }
-ul{
-padding: 0px;
-}
-.menu-principal {
-    width: 100%;
-    background-color: #EB980A;
-    height: 150px;
-}
 main{
     margin: 0 auto;
     width: 1580px;
     position: relative;
 }
-.logo{
-    float: left;
-    padding: 5px;
-    width: 80%;
-}
-.redes-sociais ul li{
-    margin-right: 10px;
-    display: inline-block;
-    float:right;
-    list-style: none;
-}
-.redes-sociais{
-    width: 10%;
-    float: right;
-}
-.header-2{
-    background-color: #FFE9C3;
-    width: 100%;
-    margin: 0 auto;
-    padding: 1px;
-}
-.menu-urls{
-    width: 80px;
-    margin: 0 auto;
-}
-.menu ul li{
-    display: inline-block;
-    color: #F08700;
-    margin-left: 300px;
-}
-.menu ul li a:hover {
-    color: #AB6203;
-}
-.menu ul li a {
-    color: #F08700;
-    text-decoration: none;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-family: Arial, Helvetica, sans-serif;
-}
+
+
 .col-100{
     width: 100%;
     float: left;
@@ -125,27 +79,7 @@ main{
     margin-block: 20px;
     padding-top: 20px;
 }
-#rodape{
-    background-color: #F08700;
-    padding: 1px
 
-
-}
-#email-1{
-   font-family: Arial, Helvetica, sans-serif;
-   color: #FFE9C3;
-   margin-left: 30px;
-}
-#email-2{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #FFE9C3;
-    margin-left: 30px;
-}
-#copyright{
-   font-family: Arial, Helvetica, sans-serif;
-   color: #FFE9C3;
-   margin-left: 1600px;
-}
 #doacao{
     color: #FFE9C3;
     font-size: 18px;
@@ -154,12 +88,6 @@ main{
     margin-left: 480px;
     padding-top: 100px;
 
-}
-#contato-rodape{
-    margin-left: 30px;
-    color: #FFE9C3;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
 }
 .qrcode{
     float: left;
@@ -213,7 +141,7 @@ hr{
 }
 .form-container{
     background-color: #F4F4F4;
-    border-radius: 0 14px 14px 0;
+    border-radius: 14px 14px 14px 14px;
     margin: 14px;
     max-width: 1100px;
     width: 100%;

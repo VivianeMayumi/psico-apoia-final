@@ -1,55 +1,20 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="./css/cadastro_logado.css">
+  <link th:href="@{/css/meu_cadastro.css}" rel="stylesheet" />
+  <link th:href="@{/css/common.css}" rel="stylesheet" />
   <title>Psico Apoia</title>
 
 </head>
 <body>
-<header class="menu-principal">
-  <main>
-    <div class="header-1">
-
-      <div class="logo">
-        <img src="./img/logo_psico_apoia.png"/>
-      </div>
-      <div class="redes-sociais">
-        <ul>
-          <li>
-            <a href="">
-              <img src="./img/logo_instagram.png"/>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <img src="./img/logo_twitter.png"/>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </main>
-</header>
-<main class="col-100 menu-urls">
-  <div class="header-2">
-    <div class="menu">
-      <ul>
-        <li><a href="">HOME</a></li>
-        <li><a href="">QUEM SOMOS</a></li>
-        <li><a href="">CONTATO</a></li>
-        <li><a href="">LOGOUT</a></li>
-      </ul>
-    </div>
-
-  </div>
-</main>
+<nav th:insert="~{cabecalho :: cabecalho}"></nav>
 <div class="header-3">
   <div class="form-container">
     <div class="form-cadastro">
       <form>
         <div class="form-group">
           <label for="nome_completo">Nome completo:</label>
-          <input id="nome_completo" name="nome_completo" type="text" th:field="*{usuario.nome}" />
+          <input id="nome_completo" name="nome_completo" type="text"/>
         </div>
         <div class="form-group-1">
           <label for="data_nascimento">Data de nascimento:</label>
@@ -94,45 +59,8 @@
       </form>
     </div>
   </div>
-  <div class="header-4">
-    <div class="menu-lateral">
-      <div class="icone-usuario">
-        <img src="./img/icone_usuario.png"/>
-      </div>
-      <p id="usuario">
-        Julia Nogueira
-      </p>
-      <ul>
-        <li><a href="">Meu Cadastro</a></li>
-        <hr>
-        <li><a href="">Aleterar Senha</a></li>
-        <hr>
-        <li><a href="">Agendamento</a></li>
-        <hr>
-        <li><a href="">Excluir Conta</a></li>
-        <hr>
-      </ul>
-    </div>
-  </div>
+  <div th:insert="~{menu_lateral :: menu_lateral}"></div>
 </div>
-<div id="rodape">
-  <p id="contato-rodape">
-    Contato
-  </p>
-  <p id="email-1">
-    Seja um profissional voluntário
-    <br>
-    <a href="">voluntariado@psicoapoia.org.br</a>
-  </p>
-  <p id="email-2">
-    Suporte ao paciente
-    <br>
-    <a href="">suporte@psicoapoia.org.br</a>
-  </p>
-  <small id="copyright">
-    ₢ Psico Apoia. Todos os Direitos Reservados
-  </small>
-</div>
-</main>
+<div th:insert="~{rodape :: rodape}"></div>
 </body>
 </html>
