@@ -6,105 +6,36 @@
 
  </head>
  <body>
-    <header class="menu-principal">
-        <main>
-            <div class="header-1">
 
-                <div class="logo">
-                    <img src="./img/logo_psico_apoia.png"/>
-                </div>
-                <div class="redes-sociais">
-                    <ul>
-                        <li>
-                            <a href="">
-                                <img src="./img/logo_instagram.png"/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="./img/logo_twitter.png"/>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </main>
-    </header>
-    <main class="col-100 menu-urls">
-        <div class="header-2">
-            <div class="menu">
-                <ul>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">QUEM SOMOS</a></li>
-                    <li><a href="">CONTATO</a></li>
-                    <li><a href="">LOGOUT</a></li>
-                </ul>
-            </div>
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
 
-        </div>
-    </main>
     <div class="header-3">
         <div class="container">
           <section>
             <h1>Excluir conta</h1>
           </section>
-          <form id="form" class="form" action="#" th:action="@{excluir_conta_senha}" method="post">
+          <form id="form" class="form" action="#" th:action="@{/carregar-confirmar-excluir-conta}" method="post">
             <div class="form-content">
                 <label for="att_password">Digite sua senha</label>
                 <input
                     type="password"
                     id="att_password"
                     placeholder="digite aqui a senha atual"
+                    th:field="*{usuario.senha}"
                 />
-                <a>Aqui vai a mensagem de erro</a>
+                <p th:text=${mensagemErro}></p>
             </div>
             <div class="form-content">
                 <label for="new_password">Ao clicar no botão confirmar, você estará excluido sua conta permanentemente</label>
-                
             </div>
-            <button type="confirm">Confirmar</button>
+            <button type="submit">Confirmar</button>
             <button type="back">Voltar</button>
           </form>
         </div>
-        <div class="header-4">
-            <div class="menu-lateral">
-                <div class="icone-usuario">
-                    <img src="./img/icone_usuario.png"/>
-                </div>
-                <p id="usuario">
-                    Julia Nogueira
-                </p>
-                    <ul>
-                        <li><a href="">Meu Cadastro</a></li>
-                        <hr>
-                        <li><a href="">Aleterar Senha</a></li>
-                        <hr>
-                        <li><a href="">Agendamento</a></li>
-                        <hr>
-                        <li><a href="">Excluir Conta</a></li>
-                        <hr>
-                    </ul> 
-            </div>
-        </div>
-    </div> 
-    <div id="rodape">
-        <p id="contato-rodape">
-            Contato
-        </p>
-        <p id="email-1">
-            Seja um profissional voluntário
-            <br>
-            <a href="">voluntariado@psicoapoia.org.br</a>
-        </p>
-        <p id="email-2">
-            Suporte ao paciente
-            <br>
-            <a href="">suporte@psicoapoia.org.br</a>
-        </p>
-        <small id="copyright">
-            ₢ Psico Apoia. Todos os Direitos Reservados
-       </small>
-    </div>   
-    </main>
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
+    </div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
  </body>       
 </html>

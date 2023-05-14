@@ -1,66 +1,70 @@
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <link th:href="@{/css/meu_cadastro.css}" rel="stylesheet" />
-  <link th:href="@{/css/common.css}" rel="stylesheet" />
-  <title>Psico Apoia</title>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/meu_cadastro.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <title>Psico Apoia</title>
 
 </head>
 <body>
-<nav th:insert="~{cabecalho :: cabecalho}"></nav>
-<div class="header-3">
-  <div class="form-container">
-    <div class="form-cadastro">
-      <form>
-        <div class="form-group">
-          <label for="nome_completo">Nome completo:</label>
-          <input id="nome_completo" name="nome_completo" type="text"/>
+
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+    <div class="header-3">
+        <div class="form-container">
+            <div class="form-cadastro">
+                <form>
+                    <div class="form-group">
+                        <label for="nome_completo">Nome completo:</label>
+                        <input id="nome_completo" name="nome_completo" type="text"/>
+                    </div>
+                    <div class="form-group-1">
+                        <label for="data_nascimento">Data de nascimento:</label>
+                        <input class="form-group-1-inputs" id="data_nascimento" name="data_nascimento" type="date"/>
+                        <label for="cpf">CPF:</label>
+                        <input class="form-group-1-inputs" id="cpf" name="cpf" type="text"/>
+                        <label for="rg">RG:</label>
+                        <input class="form-group-1-inputs" id="rg" name="rg" type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="e_mail">E-mail:</label>
+                        <input id="e_mail" name="email" type="email"/>
+                    </div>
+                    <div class="form-group-1">
+                        <label for="telefone">Telefone com DDD:</label>
+                        <input class="form-group-1-inputs" id="telefone" name="telefone" type="tel"/>
+                        <label for="celular">Celular com DDD:</label>
+                        <input class="form-group-1-inputs" id="celular" name="celular" type="tel"/>
+                    </div>
+                    <div class="form-group-1">
+                        <label for="cep">CEP:</label>
+                        <input id="cep" name="cep" type="text"/>
+                        <label for="uf">UF:</label>
+                        <input id="uf" name="uf" type="text"/>
+                        <label for="cidade">Cidade:</label>
+                        <input id="cidade" name="cidade" type="text"/>
+                        <label for="bairro">Bairro:</label>
+                        <input id="bairro" name="bairro" type="text"/>
+                    </div>
+                    <div class="form-group-1">
+                        <label for="logradouro">Logradouro:</label>
+                        <input id="logradouro" name="logradouro" type="text"/>
+                        <label for="numero">Número:</label>
+                        <input id="numero" name="numero" type="text"/>
+                        <label for="complemento">Complemento:</label>
+                        <input id="complemento" name="complemento" type="text"/>
+                    </div>
+                    <div class="form-group button-group">
+                        <button type="reset">Limpar</button>
+                        <button class="submit-btn" type="submit">Salvar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="form-group-1">
-          <label for="data_nascimento">Data de nascimento:</label>
-          <input class="form-group-1-inputs" id="data_nascimento" name="data_nascimento" type="date"/>
-          <label for="cpf">CPF:</label>
-          <input class="form-group-1-inputs" id="cpf" name="cpf" type="text"/>
-          <label for="rg">RG:</label>
-          <input class="form-group-1-inputs" id="rg" name="rg" type="text"/>
-        </div>
-        <div class="form-group">
-          <label for="e_mail">E-mail:</label>
-          <input id="e_mail" name="email" type="email"/>
-        </div>
-        <div class="form-group-1">
-          <label for="telefone">Telefone com DDD:</label>
-          <input class="form-group-1-inputs" id="telefone" name="telefone" type="tel"/>
-          <label for="celular">Celular com DDD:</label>
-          <input class="form-group-1-inputs" id="celular" name="celular" type="tel"/>
-        </div>
-        <div class="form-group-1">
-          <label for="cep">CEP:</label>
-          <input id="cep" name="cep" type="text"/>
-          <label for="uf">UF:</label>
-          <input id="uf" name="uf" type="text"/>
-          <label for="cidade">Cidade:</label>
-          <input id="cidade" name="cidade" type="text"/>
-          <label for="bairro">Bairro:</label>
-          <input id="bairro" name="bairro" type="text"/>
-        </div>
-        <div class="form-group-1">
-          <label for="logradouro">Logradouro:</label>
-          <input id="logradouro" name="logradouro" type="text"/>
-          <label for="numero">Número:</label>
-          <input id="numero" name="numero" type="text"/>
-          <label for="complemento">Complemento:</label>
-          <input id="complemento" name="complemento" type="text"/>
-        </div>
-        <div class="form-group button-group">
-          <button type="reset">Limpar</button>
-          <button class="submit-btn" type="submit">Salvar</button>
-        </div>
-      </form>
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
     </div>
-  </div>
-  <div th:insert="~{menu_lateral :: menu_lateral}"></div>
-</div>
-<div th:insert="~{rodape :: rodape}"></div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
 </body>
 </html>

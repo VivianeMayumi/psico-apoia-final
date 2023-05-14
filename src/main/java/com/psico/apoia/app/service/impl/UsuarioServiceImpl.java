@@ -60,7 +60,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public void alterarSenha(String email, String senhaAntiga, String senhaNova, String senhaNovaConfirmacao) throws SenhaInvalidaException {
         UsuarioEntity usuarioEntity = usuarioRepository.findByUsuario(email);
         if (usuarioEntity.getSenha().equals(senhaAntiga)) {
-            if(senhaNova.equals(senhaNovaConfirmacao)) {
+            if (senhaNova.equals(senhaNovaConfirmacao)) {
                 usuarioEntity.setSenha(senhaNova);
                 usuarioRepository.save(usuarioEntity);
                 return;
@@ -73,13 +73,8 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public void deletarUsuario(String usuario, String senhaConfirmacao) throws SenhaInvalidaException {
+    public void deletarUsuario(String usuario) throws SenhaInvalidaException {
         UsuarioEntity usuarioEntity = usuarioRepository.findByUsuario(usuario);
-        if (usuarioEntity.getSenha().equals(senhaConfirmacao)) {
-                usuarioRepository.delete(usuarioEntity);
-        } else {
-                throw new SenhaInvalidaException("Senha inválida!");
-        }
+        usuarioRepository.delete(usuarioEntity);
     }
-
 }

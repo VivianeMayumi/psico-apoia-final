@@ -15,31 +15,31 @@ public class ExcluirContaViewController {
     @Autowired
     private IUsuarioService iUsuarioService;
 
-    @GetMapping("/confirmar_excluir_conta")
-    public String confirmarExcluirConta(HttpSession session, Model model) {
-        model.addAttribute("excluirConta");
+    @GetMapping("/carregar-excluir-conta")
+    public String carregarExcluirConta(HttpSession session, Model model) {
+        model.addAttribute("usuario", new Usuario());
         return "excluir_conta_senha";
     }
 
-//    @PostMapping("/confirmar_excluir_conta")
-//    public String confirmarExclusao(HttpSession session, Model model) {
-//        return "excluir_conta_senha";
-//    }
-
-//    @PostMapping("/cancelar_exclusao")
-//    public String cancelarExclusao(HttpSession session, Model model) {
-//        return "redirect:/home";
-//    }
-
-    @PostMapping("/excluir_conta_senha")
-    public String excluirConta(Usuario usuario, HttpSession session, Model model) {
-        try {
-            iUsuarioService.deletarUsuario(usuario.getUsuario(), usuario.getSenhaConfirmacao());
-        } catch(Exception e) {
-            model.addAttribute("mensagemErro", e.getMessage());
+    @PostMapping("/carregar-confirmar-excluir-conta")
+    public String carregarConfirmarrExcluirConta(Usuario usuario, HttpSession session, Model model) {
+        Usuario usuarioLogado = (Usuario) session.getAttribute("usuario");
+        if(!iUsuarioService.validarUsuario(usuarioLogado.getUsuario(), usuario.getSenha())) {
+            model.addAttribute("mensagemErro", "Senha inválida!");
             return "excluir_conta_senha";
         }
-        return "redirect:/usuario_logado";
+        return "confirmar_excluir_conta";
     }
 
+    @PostMapping("/excluir-conta-senha")
+    public String excluirConta(Usuario usuario, HttpSession session, Model model) {
+        try {
+            Usuario usuarioLogado = (Usuario) session.getAttribute("usuario");
+            iUsuarioService.deletarUsuario(usuarioLogado.getUsuario());
+        } catch(Exception e) {
+            model.addAttribute("mensagemErro", e.getMessage());
+            return "confirmar_excluir_conta";
+        }
+        return "login";
+    }
 }
