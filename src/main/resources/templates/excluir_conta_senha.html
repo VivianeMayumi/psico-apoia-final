@@ -1,10 +1,9 @@
 <html lang="pt-BR">
  <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./css/style_excluir_conta.css">
-     <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <link th:href="@{/css/excluir_conta.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
     <title>Psico Apoia</title>
-
  </head>
  <body>
 
@@ -30,7 +29,7 @@
                 <label for="new_password">Ao clicar no botão confirmar, você estará excluido sua conta permanentemente</label>
             </div>
             <button type="submit">Confirmar</button>
-            <button type="back">Voltar</button>
+              <button><a href="/carregar-usuario-logado">Voltar</a></button>
           </form>
         </div>
         <div th:insert="~{menu_lateral :: menu_lateral}"></div>
