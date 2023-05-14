@@ -71,4 +71,17 @@ public class UsuarioServiceImpl implements IUsuarioService {
             throw new SenhaInvalidaException("Senha antiga inválida!");
         }
     }
+
+    @Override
+    public void deletarUsuario(Integer id, String senhaConfirmacao) throws SenhaInvalidaException {
+        Optional<UsuarioEntity> usuarioEntity = usuarioRepository.findById(id);
+        if (usuarioEntity.isPresent()) {
+            UsuarioEntity usuario = usuarioEntity.get();
+            if (usuario.getSenha().equals(senhaConfirmacao)) {
+                usuarioRepository.deleteById(id);
+            } else {
+                throw new SenhaInvalidaException("Senha inválida!");
+            }
+        }
+    }
 }

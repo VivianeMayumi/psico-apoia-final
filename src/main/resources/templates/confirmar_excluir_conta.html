@@ -1,4 +1,4 @@
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
  <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/style_excluir_conta.css">
@@ -45,47 +45,18 @@
     </main>
     <div class="header-3">
         <div class="container">
-          <section>
-            <h1>Excluir conta</h1>
-          </section>
-          <form id="form" class="form">
-            <div class="form-content">
-                <label for="att_password">Digite sua senha</label>
-                <input
-                    type="password"
-                    id="att_password"
-                    placeholder="digite aqui a senha atual"
-                />
-                <a>Aqui vai a mensagem de erro</a>
-            </div>
-            <div class="form-content">
-                <label for="new_password">Ao clicar no botão confirmar, você estará excluido sua conta permanentemente</label>
-                
-            </div>
-            <button type="confirm">Confirmar</button>
-            <button type="back">Voltar</button>
-          </form>
-        </div>
-        <div class="header-4">
-            <div class="menu-lateral">
-                <div class="icone-usuario">
-                    <img src="./img/icone_usuario.png"/>
+            <section>
+                <h1>Excluir conta</h1>
+            </section>
+            <form id="form">
+                <div class="form-content">
+                    <label>Deseja realmente excluir esta conta?</label>
                 </div>
-                <p id="usuario">
-                    Julia Nogueira
-                </p>
-                    <ul>
-                        <li><a href="">Meu Cadastro</a></li>
-                        <hr>
-                        <li><a href="">Aleterar Senha</a></li>
-                        <hr>
-                        <li><a href="">Agendamento</a></li>
-                        <hr>
-                        <li><a href="">Excluir Conta</a></li>
-                        <hr>
-                    </ul> 
-            </div>
+                <button type="button" onclick="window.location.href='/excluir_conta_senha.html'">Sim</button>
+                <button type="button" onclick="window.location.href='/usuario_logado.html'">Voltar</button>
+            </form>
         </div>
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
     </div> 
     <div id="rodape">
         <p id="contato-rodape">
@@ -104,7 +75,6 @@
         <small id="copyright">
             ₢ Psico Apoia. Todos os Direitos Reservados
        </small>
-    </div>   
-    </main>
+    </div>
  </body>       
 </html>
