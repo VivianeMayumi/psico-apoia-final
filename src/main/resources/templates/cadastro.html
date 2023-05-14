@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="./css/cadastro.css" rel="stylesheet" type="text/css">
-    <title>Psico Apoia</title>
+  <link href="./css/cadastro.css" rel="stylesheet" type="text/css">
+  <title>Psico Apoia</title>
 </head>
 <body>
 
-    <div th:replace="~{cabecalho :: cabecalho}"></div>
+<div th:replace="~{cabecalho :: cabecalho}"></div>
 
-    <div class="header-3">
-        <div class="form-container">
-            <div class="form-cadastro">
-                <form action="#" th:action="@{/cadastrar}" th:object="${usuario}" method="post">
-                    <div class="form-group-1">
-                        <label for="usuario">Usuário:</label>
-                        <input id="usuario" name="usuario" type="text" th:field="*{usuario}"/>
-                        <label for="senha">Senha:</label>
-                        <input id="senha" name="senha" type="password" th:field="*{senha}"/>
-                        <label for="senha2">Confirmação Senha:</label>
-                        <input id="senha2" name="senha2" type="password" th:field="*{senhaConfirmacao}"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="nome_completo">Nome completo:</label>
-                        <input id="nome_completo" name="nome_completo" type="text" th:field="*{nome}"/>
-                    </div>
-                    <div class="form-group-1">
-                        <label for="data_nascimento">Data de nascimento:</label>
-                        <input class="form-group-1-inputs" id="data_nascimento" name="data_nascimento" type="date" th:field="*{dataNascimento}"/>
-                        <label for="cpf">CPF:</label>
-                        <input class="form-group-1-inputs" id="cpf" name="cpf" type="text" th:field="*{numeroCpf}"/>
-                        <label for="rg">RG:</label>
-                        <input class="form-group-1-inputs" id="rg" name="rg" type="text" th:field="*{numeroRg}"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail:</label>
-                        <input id="email" name="email" type="email" th:field="*{email}"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefone">Telefone com DDD:</label>
-                        <input id="telefone" name="telefone" type="text" th:field="*{telefone}"/>
-                    </div>
-                    <div class="form-group-1">
-                        <label for="cep">CEP:</label>
-                        <input id="cep" name="cep" type="text" th:field="*{endereco.cep}"/>
-                        <label for="uf">UF:</label>
-                        <input id="uf" name="uf" type="text" th:field="*{endereco.uf}"/>
-                        <label for="cidade">Cidade:</label>
-                        <input id="cidade" name="cidade" type="text" th:field="*{endereco.cidade}"/>
-                        <label for="bairro">Bairro:</label>
-                        <input id="bairro" name="bairro" type="text" th:field="*{endereco.bairro}"/>
-                    </div>
-                    <div class="form-group-1">
-                        <label for="logradouro">Logradouro:</label>
-                        <input id="logradouro" name="logradouro" type="text" th:field="*{endereco.logradouro}"/>
-                        <label for="numero">Número:</label>
-                        <input id="numero" name="numero" type="text" th:field="*{endereco.numeroResidencia}"/>
-                        <label for="complemento">Complemento:</label>
-                        <input id="complemento" name="complemento" type="text" th:field="*{endereco.complemento}"/>
-                    </div>
-                    <div class="form-group button-group">
-                        <button type="reset">Limpar</button>
-                        <button class="submit-btn" type="submit">Salvar</button>
-                    </div>
-                </form>
-            </div>
+<div class="header-3">
+  <div class="form-container">
+    <div class="form-cadastro">
+      <form action="#" th:action="@{/cadastrar}" th:object="${usuario}" method="post">
+        <div class="form-group-1">
+          <label for="usuario">Usuário:</label>
+          <input id="usuario" name="usuario" type="text" th:field="*{usuario}"/>
+          <label for="senha">Senha:</label>
+          <input id="senha" name="senha" type="password" th:field="*{senha}"/>
+          <label for="senha2">Confirmação Senha:</label>
+          <input id="senha2" name="senha2" type="password" th:field="*{senhaConfirmacao}"/>
         </div>
+        <div class="form-group">
+          <label for="nome_completo">Nome completo:</label>
+          <input id="nome_completo" name="nome_completo" type="text" th:field="*{nome}"/>
+        </div>
+        <div class="form-group-1">
+          <label for="data_nascimento">Data de nascimento:</label>
+          <input class="form-group-1-inputs" id="data_nascimento" name="data_nascimento" type="date" th:field="*{dataNascimento}"/>
+          <label for="cpf">CPF:</label>
+          <input class="form-group-1-inputs" id="cpf" name="cpf" type="text" th:field="*{numeroCpf}"/>
+          <label for="rg">RG:</label>
+          <input class="form-group-1-inputs" id="rg" name="rg" type="text" th:field="*{numeroRg}"/>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input id="email" name="email" type="email" th:field="*{email}"/>
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone com DDD:</label>
+          <input id="telefone" name="telefone" type="text" th:field="*{telefone}"/>
+        </div>
+        <div class="form-group-1">
+          <label for="cep">CEP:</label>
+          <input id="cep" name="cep" type="text" th:field="*{endereco.cep}"/>
+          <label for="uf">UF:</label>
+          <input id="uf" name="uf" type="text" th:field="*{endereco.uf}"/>
+          <label for="cidade">Cidade:</label>
+          <input id="cidade" name="cidade" type="text" th:field="*{endereco.cidade}"/>
+          <label for="bairro">Bairro:</label>
+          <input id="bairro" name="bairro" type="text" th:field="*{endereco.bairro}"/>
+        </div>
+        <div class="form-group-1">
+          <label for="logradouro">Logradouro:</label>
+          <input id="logradouro" name="logradouro" type="text" th:field="*{endereco.logradouro}"/>
+          <label for="numero">Número:</label>
+          <input id="numero" name="numero" type="text" th:field="*{endereco.numeroResidencia}"/>
+          <label for="complemento">Complemento:</label>
+          <input id="complemento" name="complemento" type="text" th:field="*{endereco.complemento}"/>
+        </div>
+        <div class="form-group button-group">
+          <button type="reset">Limpar</button>
+          <button class="submit-btn" type="submit">Salvar</button>
+        </div>
+      </form>
     </div>
+  </div>
+</div>
 
-    <div th:replace="~{rodape :: rodape}"></div>
+<div th:replace="~{rodape :: rodape}"></div>
 
 </body>
 </html>

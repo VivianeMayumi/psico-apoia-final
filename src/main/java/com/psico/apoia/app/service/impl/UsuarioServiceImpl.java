@@ -1,5 +1,6 @@
 package com.psico.apoia.app.service.impl;
 
+import com.psico.apoia.app.common.Paciente;
 import com.psico.apoia.app.common.Usuario;
 import com.psico.apoia.app.entity.PacienteEntity;
 import com.psico.apoia.app.entity.UsuarioEntity;
@@ -29,6 +30,8 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Autowired
     private PacienteMapper pacienteMapper;
+    @Autowired
+    private PacienteServiceImpl pacienteServiceImpl;
 
     @Override
     public boolean validarUsuario(String usuario, String senha) {
@@ -76,5 +79,19 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public void deletarUsuario(String usuario) throws SenhaInvalidaException {
         UsuarioEntity usuarioEntity = usuarioRepository.findByUsuario(usuario);
         usuarioRepository.delete(usuarioEntity);
+    }
+
+    @Override
+    public Usuario alterarUsuario(Usuario usuario) {
+        Optional<UsuarioEntity> optinalUsuarioEntityBancoDados = usuarioRepository.findById(usuario.getId());
+        return optinalUsuarioEntityBancoDados.map(usuarioEntityBancoDados ->{
+            Paciente paciente = usuarioMapper.usuarioToPaciente(usuario); //método que converte objeto usuário em objeto paciente
+            paciente.setId(usuario.getId()); //copia o id de um para o outro
+            Paciente pacienteAtualizado = pacienteServiceImpl.atualizarPaciente(paciente);
+            Usuario usuarioAtualizado = usuarioMapper. pacienteToUsuario(pacienteAtualizado);//set de paciente em usuário implementado em mapper
+
+            return usuarioAtualizado;
+        }).orElse(null);
+
     }
 }

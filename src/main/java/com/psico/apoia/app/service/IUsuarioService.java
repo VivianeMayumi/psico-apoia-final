@@ -13,4 +13,6 @@ public interface IUsuarioService {
     public void alterarSenha(String email, String senhaAntiga, String senhaNova, String senhaNovaConfirmacao);
 
     public void deletarUsuario(String usuario);
+
+    public Usuario alterarUsuario(Usuario usuario);
 }

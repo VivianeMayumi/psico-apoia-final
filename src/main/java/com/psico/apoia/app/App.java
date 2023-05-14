@@ -23,4 +23,5 @@ public class App {
         viewResolver.setCharacterEncoding("UTF-8");
         return viewResolver;
     }
+
 }
