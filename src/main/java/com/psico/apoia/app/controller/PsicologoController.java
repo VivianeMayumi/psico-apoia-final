@@ -20,18 +20,12 @@ public class PsicologoController {
     }
 
     @GetMapping(value = "/psicologos-buscar")
-    public Iterable<PsicologoEntity> buscarTodosOsPsicologos() {
-        return psicologoService.obterTodosOsPsicologos();
+    public Iterable<Psicologo> buscarTodosOsPsicologos() {
+        return psicologoService.obterTodosPsicologos();
     }
-
 
     @GetMapping(value = "/psicologos/{nome}", produces = "application/json")
-    public List<Psicologo> obterPorNome(@PathVariable("nome") String nomePsicologo) {
+    public Iterable<Psicologo> obterPorNome(@PathVariable("nome") String nomePsicologo) {
         return psicologoService.obterPsicologoPorNome(nomePsicologo);
     }
-
-
-
-
-
 }

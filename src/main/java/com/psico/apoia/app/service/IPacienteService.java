@@ -8,6 +8,8 @@ public interface IPacienteService {
 
     Paciente obterPacientePorId(Integer id);
 
+    Paciente obterPacientePorIdUsuario(Integer idUsuario);
+
     Paciente criarPaciente(Paciente paciente);
 
     List<Paciente> obterPacientePorNome(String nome);

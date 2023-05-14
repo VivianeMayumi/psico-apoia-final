@@ -1,0 +1,49 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/agendamento.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/jquery-3.7.0.js}"></script>
+    <script type="text/javascript" th:src="@{/js/agendamento.js}"></script>
+    <title>Psico Apoia</title>
+</head>
+<body>
+<nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+<div class="header-3">
+    <div class="container">
+        <section>
+            <h1>Agendamento</h1>
+        </section>
+        <form id="form" class="form" action="#" th:action="@{/agendar}" th:object="${agendamento}" method="post">
+            <div class="form-content">
+                <label for="name">Escolha um(a) psicologo(a)</label>
+                <select id="name" th:field="*{idPsicologo}">
+                    <option value="0">Escolha um profissional</option>
+                    <option th:each="psicologoValue : ${psicologos}" th:value="${psicologoValue.id}" th:text="${psicologoValue.nome}"></option>
+                </select>
+            </div>
+            <div class="form-content">
+                <label for="dataHora">Selecionar a data/hora do atendimento</label>
+                <select id="dataHora" th:field="*{id}" >
+                    <option value="0" disabled="disabled" selected="selected">Primeiro escolha um Psicologo</option>
+                </select>
+                <a>Aqui vai a mensagem de erro</a>
+            </div>
+            <button type="submit">Agendar</button>
+            <button><a href="/carregar-usuario-logado">Voltar</a></button>
+            <ul class="notificacao">
+                <li class="sucesso">
+                    <div class=" coluna">
+                        <span>Agendamento realizado com sucesso!</span>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div th:insert="~{menu_lateral :: menu_lateral}"></div>
+</div>
+
+<div th:insert="~{rodape :: rodape}"></div>
+</body>
+</html>
