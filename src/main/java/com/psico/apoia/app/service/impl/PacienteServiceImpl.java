@@ -39,6 +39,14 @@ public class PacienteServiceImpl implements IPacienteService {
         }).orElse(null);
     }
 
+    @Override
+    public Paciente obterPacientePorIdUsuario(Integer idUsuario) {
+        PacienteEntity pacienteEncontrado = pacienteRepository.findByUsuarioId(idUsuario);
+        return Optional.ofNullable(pacienteEncontrado).map(paciente -> {
+            return pacienteMapper.pacienteEntityToPaciente(paciente);
+        }).orElse(null);
+    }
+
     public Paciente criarPaciente(Paciente paciente) {
         PacienteEntity pacienteEntity = pacienteMapper.pacienteToPacienteEntity(paciente);
         Optional<UsuarioEntity> optionalUsuarioEntity = usuarioRepository.findById(paciente.getIdUsuario());
