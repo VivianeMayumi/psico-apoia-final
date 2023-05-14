@@ -3,6 +3,7 @@ package com.psico.apoia.app.service;
 import com.psico.apoia.app.common.Psicologo;
 
 import com.psico.apoia.app.entity.PsicologoEntity;
+import com.psico.apoia.app.exception.PsicologoNaoEncontradoException;
 
 import java.util.List;
 
@@ -12,14 +13,8 @@ public interface IPsicologoService {
 
     public Psicologo obterPsicologoPorId(Integer id);
 
-    List<Psicologo> obterPsicologoPorNome(String nome);
+    public Iterable<Psicologo> obterPsicologoPorNome(String nome) throws PsicologoNaoEncontradoException;
 
-    Iterable<PsicologoEntity> obterTodosOsPsicologos();
-
-
-
-    //void deletarPsicologo(Integer idPsicologo);
-    //public Psicologo atualizarPsicologo(Psicologo psicologo);
-
+    public Iterable<Psicologo> obterTodosPsicologos();
 }
 

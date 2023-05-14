@@ -22,14 +22,12 @@ public class PsicologoServiceImpl implements IPsicologoService {
     @Autowired
     private PsicologoMapper psicologoMapper;
 
-
     public Psicologo obterPsicologoPorId(Integer id){
         Optional<PsicologoEntity> optionalPsicologo = psicologoRepository.findById(id);
         return optionalPsicologo.map(psicologo ->{
             return psicologoMapper.psicologoEntityToPsicologo(psicologo);
         }).orElse(null);
     }
-
 
     @Override
         public Psicologo criarPsicologo(Psicologo psicologo) {
@@ -39,9 +37,8 @@ public class PsicologoServiceImpl implements IPsicologoService {
         return psicologoMapper.psicologoEntityToPsicologo(psicologoEntity);
     }
 
-
     @Override
-    public List<Psicologo> obterPsicologoPorNome(String nome) throws PsicologoNaoEncontradoException {
+    public Iterable<Psicologo> obterPsicologoPorNome(String nome) throws PsicologoNaoEncontradoException {
         List<PsicologoEntity> psicologo = psicologoRepository.findByNomeContainingIgnoreCase(nome);
         for (PsicologoEntity psicologoEntity : psicologo){
             if(psicologoEntity.getNome().equals(nome)){
@@ -54,9 +51,7 @@ public class PsicologoServiceImpl implements IPsicologoService {
     }
 
     @Override
-    public Iterable<PsicologoEntity> obterTodosOsPsicologos() {
-        return psicologoRepository.findAll();
+    public Iterable<Psicologo> obterTodosPsicologos() {
+        return psicologoMapper.psicologoEntityToPsicologo(psicologoRepository.findAll());
     }
-
-
 }

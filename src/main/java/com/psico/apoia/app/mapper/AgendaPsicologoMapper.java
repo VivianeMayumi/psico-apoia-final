@@ -7,7 +7,7 @@ import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
-@Mapper(componentModel = "sprint")
+@Mapper(componentModel = "spring")
 public interface AgendaPsicologoMapper {
 
     AgendaPsicologoEntity agendaPsicologoToAgendaPsicologoEntity(AgendaPsicologo agendaPsicologo);

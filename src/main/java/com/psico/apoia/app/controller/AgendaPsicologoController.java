@@ -3,7 +3,7 @@ package com.psico.apoia.app.controller;
 import com.psico.apoia.app.entity.AgendaPsicologoEntity;
 import com.psico.apoia.app.entity.PsicologoEntity;
 import com.psico.apoia.app.repository.AgendaPsicologoRepository;
-import com.psico.apoia.app.service.IAgendaPsicologoService;
+import com.psico.apoia.app.service.IAgendamentoService;
 import com.psico.apoia.app.service.IPsicologoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 public class AgendaPsicologoController {
 
     @Autowired
-    private IAgendaPsicologoService agendaPsicologoService;
+    private IAgendamentoService agendaPsicologoService;
     @Autowired
     private IPsicologoService psicologoService;
     @Autowired

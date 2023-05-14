@@ -17,6 +17,6 @@ public interface PsicologoMapper {
 
     Psicologo psicologoEntityToPsicologo(PsicologoEntity psicologo);
 
-    List<Psicologo> psicologoEntityToPsicologo(List<PsicologoEntity> psicologosEntity);
+    Iterable<Psicologo> psicologoEntityToPsicologo(Iterable<PsicologoEntity> psicologosEntity);
 }
 
