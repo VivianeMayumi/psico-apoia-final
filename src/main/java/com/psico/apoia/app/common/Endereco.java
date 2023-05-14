@@ -11,7 +11,7 @@ import lombok.Setter;
 public class Endereco {
 
     @JsonProperty
-    private int cep;
+    private Integer cep;
     @JsonProperty
     private String uf;
     @JsonProperty
@@ -21,7 +21,7 @@ public class Endereco {
     @JsonProperty
     private String logradouro;
     @JsonProperty
-    private int numeroResidencia;
+    private Integer numeroResidencia;
     @JsonProperty
     private String complemento;
 }

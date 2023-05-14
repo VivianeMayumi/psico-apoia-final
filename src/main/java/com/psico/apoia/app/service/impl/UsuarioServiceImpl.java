@@ -60,19 +60,21 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public void alterarSenha(String email, String senhaAntiga, String senhaNova, String senhaNovaConfirmacao) throws SenhaInvalidaException {
-        UsuarioEntity usuarioEntity = usuarioRepository.findByUsuario(email);
-        if (usuarioEntity.getSenha().equals(senhaAntiga)) {
-            if (senhaNova.equals(senhaNovaConfirmacao)) {
-                usuarioEntity.setSenha(senhaNova);
-                usuarioRepository.save(usuarioEntity);
-                return;
+    public void alterarSenha(Integer id, String senhaAntiga, String senhaNova, String senhaNovaConfirmacao) throws SenhaInvalidaException {
+        Optional<UsuarioEntity> optionalUsuarioEntity = usuarioRepository.findById(id);
+        optionalUsuarioEntity.ifPresent(usuarioEntity -> {
+            if (usuarioEntity.getSenha().equals(senhaAntiga)) {
+                if (senhaNova.equals(senhaNovaConfirmacao)) {
+                    usuarioEntity.setSenha(senhaNova);
+                    usuarioRepository.save(usuarioEntity);
+                    return;
+                } else {
+                    throw new SenhaInvalidaException("Nova senha não é igual a senha de confirmação");
+                }
             } else {
-                throw new SenhaInvalidaException("Nova senha não é igual a senha de confirmação");
+                throw new SenhaInvalidaException("Senha antiga inválida!");
             }
-        } else {
-            throw new SenhaInvalidaException("Senha antiga inválida!");
-        }
+        });
     }
 
     @Override

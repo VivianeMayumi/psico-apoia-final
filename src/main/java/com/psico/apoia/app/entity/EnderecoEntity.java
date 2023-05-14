@@ -16,12 +16,11 @@ public class EnderecoEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private int cep;
+    private Integer cep;
     private String uf;
     private String cidade;
     private String bairro;
     private String logradouro;
-    private int numeroResidencia;
+    private Integer numeroResidencia;
     private String complemento;
-
 }

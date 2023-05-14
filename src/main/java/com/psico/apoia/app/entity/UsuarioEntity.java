@@ -22,5 +22,5 @@ public class UsuarioEntity {
     private String senha;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy="usuario")
-    private PacienteEntity pacinte;
+    private PacienteEntity paciente;
 }

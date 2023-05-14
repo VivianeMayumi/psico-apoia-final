@@ -14,11 +14,10 @@ public class PrimeiroAcessoViewController {
     @Autowired
     private ICadastroService cadastroService;
 
-
     @GetMapping("/carregar-primeiro-acesso")
     public String carregarPrimeiroAcesso(Model model) {
         model.addAttribute("usuario", new Usuario());
-        return "cadastro";
+        return "primeiro_acesso";
     }
 
     @PostMapping("/cadastrar")
