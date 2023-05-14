@@ -24,6 +24,8 @@ public class MeuCadastroViewController {
 
     @PostMapping("/atualizar-meu-cadastro")
     public String alterarCadastro(HttpSession session, Model model, Usuario usuario){
+        Usuario usuarioLogado = (Usuario) session.getAttribute("usuario");
+        usuario.setId(usuarioLogado.getId());
         Usuario usuarioAtualizado = usuarioService.alterarUsuario(usuario);
         session.setAttribute("usuario", usuarioAtualizado);
         return "meu_cadastro";
