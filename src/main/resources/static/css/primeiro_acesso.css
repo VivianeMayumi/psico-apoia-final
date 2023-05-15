@@ -5,72 +5,13 @@ body {
   background-color: #EB980A;
 }
 
-ul {
-  padding: 0px;
-}
-
-.menu-principal {
-  width: 100%;
-  background-color: #EB980A;
-  height: 150px;
-}
-
 main {
   margin: 0 auto;
   width: 1580px;
   position: relative;
 }
 
-.logo {
-  float: left;
-  padding: 5px;
-  width: 80%;
-}
 
-.redes-sociais ul li {
-  margin-right: 10px;
-  display: inline-block;
-  float: right;
-  list-style: none;
-}
-
-.redes-sociais {
-  width: 10%;
-  float: right;
-}
-
-.header-2 {
-  width: 100%;
-  margin: 0 auto;
-  padding: 1px;
-  clear: both;
-}
-
-.menu {
-    display: block;
-    background-color: #FFE9C3;
-    padding: 8px;
-}
-
-.menu-urls {
-  width: 80px;
-  margin: 0 auto;
-}
-
-.menu ul {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu ul li {
-  color: #F08700;
-  margin-right: 80px;
-  margin-left: 80px;
-}
 
 @media only screen and (max-width: 768px) {
   .menu ul li {
@@ -79,26 +20,10 @@ main {
   }
 }
 
-.menu ul li a:hover {
-  color: #AB6203;
-}
-
-.menu ul li a {
-  color: #F08700;
-  text-decoration: none;
-  font-size: 18px;
-  text-transform: uppercase;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .header-3 {
   margin-top: 5px;
   width: 100%;
   height: auto;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .form-container {
@@ -194,25 +119,7 @@ input {
   margin-bottom: 0;
 }
 
-#rodape{
-    background-color: #F08700;
-    padding: 1px
-}
-#email-1{
-   font-family: Arial, Helvetica, sans-serif;
-   color: #FFE9C3;
-   margin-left: 30px;
-}
-#email-2{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #FFE9C3;
-    margin-left: 30px;
-}
-#copyright{
-   font-family: Arial, Helvetica, sans-serif;
-   color: #FFE9C3;
-   margin-left: 1600px;
-}
+
 #doacao{
     color: #FFE9C3;
     font-size: 18px;
@@ -221,10 +128,4 @@ input {
     margin-left: 480px;
     padding-top: 100px;
 
-}
-#contato-rodape{
-    margin-left: 30px;
-    color: #FFE9C3;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
 }
