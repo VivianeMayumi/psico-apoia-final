@@ -31,6 +31,7 @@ public class AlterarSenhaViewController {
             model.addAttribute("mensagemErro", e.getMessage());
             return "alterar_senha";
         }
+        model.addAttribute("mensagemSucesso", "Alteração de senha realizada com sucesso!");
         return "usuario_logado";
     }
 }

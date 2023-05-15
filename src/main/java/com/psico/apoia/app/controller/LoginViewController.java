@@ -29,7 +29,7 @@ public class LoginViewController {
             session.setAttribute("usuario", usuarioEncontrado);
             return "usuario_logado";
         } else {
-            model.addAttribute("loginError", true);
+            model.addAttribute("mensagemErro","Usuário e/ou senha incorretos");
             return "login";
         }
     }

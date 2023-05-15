@@ -1,41 +1,42 @@
-body{
+body {
     width: 100%;
     height: 100%;
     margin: 0 auto;
 }
-main{
+
+main {
     margin: 0 auto;
     width: 1580px;
     position: relative;
 }
 
-
-.col-100{
+.col-100 {
     width: 100%;
     float: left;
     position: relative;
 }
 
-.header-3{
+.header-3 {
     background-color: #EB980A;
     width: 100%;
     height: 900px;
 }
+
 .logo-home{
     float: right;
     width: 68%;
     margin-left: 100px;
 }
 
-#quem-somos{
+#quem-somos {
     color: #FFE9C3;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     margin-left: 480px;
     padding-top: 100px;
-
 }
+
 #quem-somos-tx{
     color: #FFE9C3;
     font-size: 18px;
@@ -46,15 +47,16 @@ main{
     margin-left: 480px;
     margin-block: 20px;
     padding-top: 20px;
-
 }
-#link{
+
+#link {
     color: #FFE9C3;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 800px;
 }
-#contato{
+
+#contato {
     color: #FFE9C3 ;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
@@ -62,13 +64,15 @@ main{
     margin-left: 810px;
     padding-top: 100px;
 }
-#email{
+
+#email {
     color:#FFE9C3;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 810px;
 }
-#contato-tx{
+
+#contato-tx {
     color: #FFE9C3;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
@@ -80,50 +84,45 @@ main{
     padding-top: 20px;
 }
 
-#doacao{
+#doacao {
     color: #FFE9C3;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     margin-left: 480px;
     padding-top: 100px;
-
 }
-.qrcode{
+
+.qrcode {
     float: left;
     margin-left: 480px;
 }
-.menu-lateral{
+
+.menu-lateral {
 
 }
-.header-4{
-    width: 20%;
-    height: 900px;
-    margin-top: 55px;
-    background-color: #FFE9C3;
-    border-radius: 0 40px 40px 0;
-}
 
-#usuario{
+#usuario {
     color: #F08700;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: bold;
     float: left;
     margin-left: 130px ;
-
 }
 
-.menu-lateral ul li{
+.menu-lateral ul li {
     display: inline-block;
     color: #F08700;
     margin-left: 200px;
     margin-top: 0;
     padding-top: 8%;
 }
+
 .menu-lateral ul li a:hover {
     color: #AB6203;
 }
+
 .menu-lateral ul li a {
     color: #F08700;
     text-decoration: none;
@@ -131,15 +130,18 @@ main{
     text-transform: capitalize;
     font-family: Arial, Helvetica, sans-serif;
 }
-hr{
+
+hr {
    border-color: #F08700;
 }
-.icone-usuario{
+
+.icone-usuario {
     float: left;
     margin-left: 125px;
     padding-top: 10%;
 }
-.form-container{
+
+.form-container {
     background-color: #F4F4F4;
     border-radius: 14px;
     margin: 14px;
@@ -150,8 +152,8 @@ hr{
     margin-top: 10%;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: 0 3px 5px;
-
 }
+
 .form-cadastro {
   display: flex;
   flex-direction: row;
@@ -161,18 +163,18 @@ hr{
   width: 90%;
   margin: 0 auto;
 }
+
 h1{
     color: #F08700;
     padding: 24px;
     font-size: 20px;
-
 }
-.form{
+
+.form {
     padding: 18px;
 }
 
-.form-group{
-    margin-bottom: 8px;
+.form-group {
     padding-bottom: 18px;
     position: relative;
     color: #F08700;
@@ -180,7 +182,6 @@ h1{
 
 .form-group-1-inputs {
   width: calc(33.33% - 10px);
-  margin-bottom: 10px;
 }
 
 label {
@@ -221,5 +222,3 @@ input {
   margin-right: 10px;
   cursor: pointer;
 }
-
-

@@ -23,8 +23,11 @@
             <ul>
                 <li><a href="/carregar-home">HOME</a></li>
                 <li><a href="/carregar-quem-somos">QUEM SOMOS</a></li>
-                <li><a href="/carregar-login">LOGIN</a></li>
+                <li th:if="${session.usuario == null}"><a href="/carregar-login">LOGIN</a></li>
+                <li th:if="${session.usuario != null}"><a href="/logout">LOGOUT</a></li>
             </ul>
         </div>
     </div>
+    <input type="hidden" id="mensagemErro" name="mensagemErro" th:if="${mensagemErro != null}" th:value="${mensagemErro}"/>
+    <input type="hidden" id="mensagemSucesso" name="mensagemSucesso" th:if="${mensagemSucesso != null}" th:value="${mensagemSucesso}"/>
 </nav>

@@ -28,14 +28,6 @@ main{
     text-transform: uppercase;
     margin-left: 480px;
     padding-top: 100px;
-
-}
-.header-4{
-    width: 20%;
-    height: 900px;
-    margin-top: 55px;
-    background-color: #FFE9C3;
-    border-radius: 0 40px 40px 0;
 }
 
 #usuario{
