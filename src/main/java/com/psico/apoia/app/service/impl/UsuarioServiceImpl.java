@@ -56,6 +56,8 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
         if(nomeUsuario == null||nomeUsuario.isEmpty()){
             throw new IllegalArgumentException("Usuário não preenchido!");
+        }else if(senha==null ||senha.isEmpty()||  senhaConfirmacao == null|| senhaConfirmacao.isEmpty()){
+            throw new IllegalArgumentException("Senha não informada, por favor preencher");
         }
         UsuarioEntity usuarioBusca = usuarioRepository.findByUsuario(nomeUsuario);
         if(usuarioBusca!=null){
@@ -66,8 +68,6 @@ public class UsuarioServiceImpl implements IUsuarioService {
             UsuarioEntity usuarioCriado = usuarioRepository.save(usuarioEntity);
             return usuarioMapper.usuarioEntityToUsuario(usuarioCriado);
 
-        }else if(senha==null|| senhaConfirmacao ==null){
-            throw new IllegalArgumentException("Senha não informada, por favor preencher");
         }
         throw new IllegalArgumentException("As senhas não correspondem.");
     }
