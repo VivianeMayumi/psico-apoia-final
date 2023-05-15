@@ -11,6 +11,7 @@
 
   <div class="header-3">
     <div class="form-container">
+      <p th:text=${mensagemErro}></p>
       <div class="form-cadastro">
         <form action="#" th:action="@{/cadastrar}" th:object="${usuario}" method="post">
           <div class="form-group-1">

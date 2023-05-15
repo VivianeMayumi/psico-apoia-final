@@ -13,7 +13,6 @@ import com.psico.apoia.app.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -51,12 +50,22 @@ public class UsuarioServiceImpl implements IUsuarioService {
         return usuarioRetorno;
     }
 
+    //validar senha com senhaConfirmada e verificar se foram preenchidas
     @Override
-    public Usuario criarUsuario(String nomeUsuario, String senha, String senhaConfirmacao) {
-        Usuario usuario = new Usuario(nomeUsuario, senha);
-        UsuarioEntity usuarioEntity = usuarioMapper.usuarioToUsuarioEntity(usuario);
-        UsuarioEntity usuarioCriado = usuarioRepository.save(usuarioEntity);
-        return usuarioMapper.usuarioEntityToUsuario(usuarioCriado);
+    public Usuario criarUsuario(String nomeUsuario, String senha, String senhaConfirmacao)  {
+        UsuarioEntity usuarioBusca = usuarioRepository.findByUsuario(nomeUsuario);
+        if(usuarioBusca!=null){
+            throw new IllegalArgumentException("Usuário já existente!");
+        }else if (senha.equals(senhaConfirmacao)) {
+            Usuario usuario = new Usuario(nomeUsuario, senha);
+            UsuarioEntity usuarioEntity = usuarioMapper.usuarioToUsuarioEntity(usuario);
+            UsuarioEntity usuarioCriado = usuarioRepository.save(usuarioEntity);
+            return usuarioMapper.usuarioEntityToUsuario(usuarioCriado);
+
+        }else if(senha==null|| senhaConfirmacao ==null){
+            throw new IllegalArgumentException("Senha não informada, por favor preencher");
+        }
+        throw new IllegalArgumentException("As senhas não correspondem.");
     }
 
     @Override
