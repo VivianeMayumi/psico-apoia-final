@@ -27,6 +27,9 @@ public class AlterarSenhaViewController {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         try {
             iUsuarioService.alterarSenha(usuario.getId(), alteracaoSenha.getSenhaAtual(), alteracaoSenha.getSenha(), alteracaoSenha.getSenhaConfirmacao());
+            usuario.setSenha(alteracaoSenha.getSenha());
+            usuario.setSenhaConfirmacao(alteracaoSenha.getSenha());
+            session.setAttribute("usuario", usuario);
         } catch(Exception e) {
             model.addAttribute("mensagemErro", e.getMessage());
             return "alterar_senha";
