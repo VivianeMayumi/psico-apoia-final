@@ -22,7 +22,12 @@ public class PrimeiroAcessoViewController {
 
     @PostMapping("/cadastrar")
     public String cadastrar(Model model, Usuario usuario) {
-        cadastroService.cadastrar(usuario);
+        try {
+            cadastroService.cadastrar(usuario);
+        }catch(Exception e) {
+            model.addAttribute("mensagemErro", e.getMessage());
+            return "primeiro_acesso";
+        }
         return "login";
     }
 }
