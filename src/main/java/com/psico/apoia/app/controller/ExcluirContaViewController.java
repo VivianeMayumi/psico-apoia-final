@@ -40,6 +40,7 @@ public class ExcluirContaViewController {
             model.addAttribute("mensagemErro", e.getMessage());
             return "confirmar_excluir_conta";
         }
+        session.removeAttribute("usuario");
         model.addAttribute("mensagemSucesso", "Conta excluída com sucesso!");
         return "login";
     }
