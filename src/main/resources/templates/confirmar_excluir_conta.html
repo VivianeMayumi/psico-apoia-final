@@ -3,6 +3,10 @@
     <meta charset="UTF-8">
     <link th:href="@{/css/excluir_conta.css}" rel="stylesheet"/>
     <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <link th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/jquery-3.7.0.js}"></script>
+    <script type="text/javascript" th:src="@{/js/toastr.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
     <title>Psico Apoia</title>
 
 </head>
@@ -18,7 +22,7 @@
                     <label>Deseja realmente excluir esta conta?</label>
                 </div>
                 <button type="submit">Sim</button>
-                <button><a href="/carregar-excluir-conta">Voltar</a></button>
+                <button type="button" id="botaoVoltar"><a id="linkVoltar" href="/carregar-excluir-conta">Voltar</a></button>
             </form>
         </div>
         <div th:insert="~{menu_lateral :: menu_lateral}"></div>
