@@ -23,6 +23,7 @@
             <ul>
                 <li><a href="/carregar-home">HOME</a></li>
                 <li><a href="/carregar-quem-somos">QUEM SOMOS</a></li>
+                <li th:if="${session.usuario != null}"><a href="/carregar-usuario-logado">MENU</a></li>
                 <li th:if="${session.usuario == null}"><a href="/carregar-login">LOGIN</a></li>
                 <li th:if="${session.usuario != null}"><a href="/logout">LOGOUT</a></li>
             </ul>
