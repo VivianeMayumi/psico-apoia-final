@@ -43,9 +43,14 @@ public class AgendamentoViewController {
 
     @PostMapping("/agendar")
     public String agendar(HttpSession session, Model model, AgendaPsicologo agenda) {
-        Usuario usuario = (Usuario) session.getAttribute("usuario");
-        Paciente paciente = pacienteService.obterPacientePorIdUsuario(usuario.getId());
-        agendamentoService.agendarSessao(paciente.getId(), agenda.getId());
+        try {
+            Usuario usuario = (Usuario) session.getAttribute("usuario");
+            Paciente paciente = pacienteService.obterPacientePorIdUsuario(usuario.getId());
+            agendamentoService.agendarSessao(paciente.getId(), agenda.getId());
+        } catch(Exception e) {
+            model.addAttribute("mensagemErro", "Erro ao realizar o agendamento!");
+        }
+        model.addAttribute("mensagemSucesso", "Agendamento realizado com sucesso!");
         return "usuario_logado";
     }
 }

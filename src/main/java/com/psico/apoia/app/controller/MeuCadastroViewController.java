@@ -28,6 +28,7 @@ public class MeuCadastroViewController {
         usuario.setId(usuarioLogado.getId());
         Usuario usuarioAtualizado = usuarioService.alterarUsuario(usuario);
         session.setAttribute("usuario", usuarioAtualizado);
+        model.addAttribute("mensagemSucesso", "Cadastro atualizado com sucesso!");
         return "meu_cadastro";
     }
 }

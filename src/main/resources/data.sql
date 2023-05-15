@@ -1,6 +1,7 @@
 INSERT INTO usuario(id, usuario, senha) VALUES(1, 'teste', 'teste');
 ALTER SEQUENCE USUARIO_SEQ RESTART WITH 2;
 
+
 INSERT INTO endereco(id, cep, uf, cidade, bairro, logradouro, numero_residencia, complemento) VALUES(1, 1318010, 'SP', 'São Paulo', 'Vila Vila', 'Rua do Teste', 123, 'Casa');
 INSERT INTO endereco(id, cep, uf, cidade, bairro, logradouro, numero_residencia, complemento) VALUES(2, 1318010, 'SP', 'São Paulo', 'Vila Vila', 'Rua do Teste', 123, 'Casa');
 INSERT INTO endereco(id, cep, uf, cidade, bairro, logradouro, numero_residencia, complemento) VALUES(3, 1318010, 'SP', 'São Paulo', 'Vila Vila', 'Rua do Teste', 123, 'Casa');
