@@ -60,7 +60,7 @@ public class AgendamentoServiceImpl implements IAgendamentoService {
         List<AgendaPsicologoEntity> agendasPsicologo = agendaPsicologoRepository.findByPsicologoIdAndDisponivel(idPsicologo, Boolean.TRUE);
         return agendaPsicologoMapper.agendaPsicologoEntityToAgendaPsicologo(agendasPsicologo);
     }
-
+    //validar agendamento de sessão
     @Override
     public void agendarSessao(Integer idPaciente, Integer idAgendaPsicologo) {
         Optional<PacienteEntity> optionalPacienteEntity = pacienteRepository.findById(idPaciente);

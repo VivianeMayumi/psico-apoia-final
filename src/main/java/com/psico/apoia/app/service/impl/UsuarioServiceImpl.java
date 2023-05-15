@@ -53,6 +53,10 @@ public class UsuarioServiceImpl implements IUsuarioService {
     //validar senha com senhaConfirmada e verificar se foram preenchidas
     @Override
     public Usuario criarUsuario(String nomeUsuario, String senha, String senhaConfirmacao)  {
+
+        if(nomeUsuario == null||nomeUsuario.isEmpty()){
+            throw new IllegalArgumentException("Usuário não preenchido!");
+        }
         UsuarioEntity usuarioBusca = usuarioRepository.findByUsuario(nomeUsuario);
         if(usuarioBusca!=null){
             throw new IllegalArgumentException("Usuário já existente!");
