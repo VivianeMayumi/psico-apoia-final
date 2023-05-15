@@ -58,7 +58,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
             throw new IllegalArgumentException("Usuário não preenchido!");
         }
         UsuarioEntity usuarioBusca = usuarioRepository.findByUsuario(nomeUsuario);
-         if(usuarioBusca!=null){
+        if(usuarioBusca!=null){
             throw new IllegalArgumentException("Usuário já existente!");
         }else if (senha.equals(senhaConfirmacao)) {
             Usuario usuario = new Usuario(nomeUsuario, senha);
