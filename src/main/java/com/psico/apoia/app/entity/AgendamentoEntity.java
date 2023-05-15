@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "agendamento")
 @Getter
@@ -16,7 +14,7 @@ public class AgendamentoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "agenda_psicologo_id", referencedColumnName = "id")
     private AgendaPsicologoEntity agendaPsicologoEntity;
     private boolean cancelado;
