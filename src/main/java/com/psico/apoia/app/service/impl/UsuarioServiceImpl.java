@@ -56,7 +56,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
         if(nomeUsuario == null||nomeUsuario.isEmpty()){
             throw new IllegalArgumentException("Usuário não preenchido!");
-        }else if(senha==null ||senha.isEmpty()||  senhaConfirmacao ==null|| senhaConfirmacao.isEmpty()){
+        }else if(senha==null ||senha.isEmpty()||  senhaConfirmacao == null|| senhaConfirmacao.isEmpty()){
             throw new IllegalArgumentException("Senha não informada, por favor preencher");
         }
         UsuarioEntity usuarioBusca = usuarioRepository.findByUsuario(nomeUsuario);
@@ -74,6 +74,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     public void alterarSenha(Integer id, String senhaAntiga, String senhaNova, String senhaNovaConfirmacao) throws SenhaInvalidaException {
+        if (senhaNova == null || senhaNova.isEmpty()|| senhaNovaConfirmacao ==null || senhaNovaConfirmacao.isEmpty()) {
+            throw new SenhaInvalidaException("Nova senha e confirmação de senha devem ser fornecidas");
+        }
         Optional<UsuarioEntity> optionalUsuarioEntity = usuarioRepository.findById(id);
         optionalUsuarioEntity.ifPresent(usuarioEntity -> {
             if (usuarioEntity.getSenha().equals(senhaAntiga)) {
