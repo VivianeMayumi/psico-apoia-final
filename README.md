@@ -19,7 +19,7 @@ Projeto Integrador- Senac- Tecnologia em Análise e Desenvolvimento de Sistemas.
 
 - Usuário poderá visualizar a missão da plataforma na página de “quem somos”,  e também poderá acessar um link onde será redirecionado para uma  página de doação e  poderá realizar a sua doação para plataforma;
 
-- Usuário poderá visualizar em todas as páginas o rodapé, onde conterá as  informações de contato caso ele quiser ser um psicólogo voluntário e também conterá o contato do suporte da plataforma; 
+- Usuário poderá visualizar em todas as páginas o rodapé, onde conterá as  informações de contato caso ele quiser ser um psicólogo voluntário e também conterá o contato do suporte da plataforma;
 
 - Usuário ao entrar na opção de login ele poderá fazer o primeiro acesso e se cadastrar;
 
@@ -31,7 +31,7 @@ Projeto Integrador- Senac- Tecnologia em Análise e Desenvolvimento de Sistemas.
 
 - Usuário paciente poderá selecionar o psicólogo que deseja fazer um agendamento;
 
-- Usuário paciente  poderá visualizar a agenda de datas e horários disponíveis do psicólogo e agendar uma consulta; 
+- Usuário paciente  poderá visualizar a agenda de datas e horários disponíveis do psicólogo e agendar uma consulta;
 
 - Usuário paciente poderá ter o acesso de alterar e atualizar a sua senha;
 
@@ -46,7 +46,7 @@ Para executar o projeto, será necessário instalar os seguintes programas:
 - JDK20
 - InteliJ community
 
- 
+
 
 ## 👷🏻Começando
 
@@ -102,7 +102,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologia:
 
 ### **Links do Protótipo:**
 ### Figma
-- [Projeto Psico-Apoia](http://https://www.figma.com/file/5Qgnlb4bif02muZjrxCVsX/PSICO-APOIA-FINAL-2%C2%AAENTREGA?type=design&node-id=0%3A1&t=HbY4n2HbbZn0S995-1 "Projeto Psico-Apoia")
+- [Projeto Psico-Apoia](https://www.figma.com/file/5Qgnlb4bif02muZjrxCVsX/PSICO-APOIA-FINAL-2%C2%AAENTREGA?type=design&node-id=0%3A1&t=yDJoWnupUdKHKgpk-1)
 
-###Youtube
-- [Projeto Psico-Apoia](http://https://www.youtube.com/watch?v=i_8oWOo4A8U "Projeto Psico-Apoia")
+### Youtube
+- [Projeto Psico-Apoia](https://www.youtube.com/watch?v=i_8oWOo4A8U&t=1s&ab_channel=SaraThaise)
