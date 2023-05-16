@@ -1,0 +1,73 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/meu_cadastro.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <link th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/jquery-3.7.0.js}"></script>
+    <script type="text/javascript" th:src="@{/js/toastr.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <title>Psico Apoia</title>
+
+</head>
+<body>
+
+<nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+<div class="header-3">
+    <div class="form-container">
+        <div class="form-cadastro">
+            <form action="#" th:action="@{/atualizar-meu-cadastro}"  method="post">
+                <div class="form-group">
+                    <label for="nome_completo">Nome completo:</label>
+                    <input id="nome_completo" name="nome_completo" type="text" th:field = "*{usuario.nome}"/>
+                </div>
+                <div class="form-group-1">
+                    <label for="data_nascimento">Data de nascimento:</label>
+                    <input class="form-group-1-inputs" id="data_nascimento" name="data_nascimento" type="date" th:field = "*{usuario.dataNascimento}"/>
+                    <label for="cpf">CPF:</label>
+                    <input class="form-group-1-inputs" id="cpf" name="cpf" type="text" th:field = "*{usuario.numeroCpf}"/>
+                    <label for="rg">RG:</label>
+                    <input class="form-group-1-inputs" id="rg" name="rg" type="text"th:field = "*{usuario.numeroRg}"/>
+                </div>
+                <div class="form-group">
+                    <label for="e_mail">E-mail:</label>
+                    <input id="e_mail" name="email" type="email" th:field = "*{usuario.email}"/>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone com DDD:</label>
+                    <input id="telefone" name="telefone" type="tel" th:field = "*{usuario.telefone}"/>
+                </div>
+                <div class="form-group-1">
+                    <label for="cep">CEP:</label>
+                    <input id="cep" name="cep" type="text" th:field = "*{usuario.Endereco.cep}"/>
+                    <label for="uf">UF:</label>
+                    <input id="uf" name="uf" type="text" th:field = "*{usuario.Endereco.uf}"/>
+                    <label for="cidade">Cidade:</label>
+                    <input id="cidade" name="cidade" type="text" th:field = "*{usuario.Endereco.cidade}"/>
+                    <label for="bairro">Bairro:</label>
+                    <input id="bairro" name="bairro" type="text" th:field = "*{usuario.Endereco.bairro}"/>
+                </div>
+                <div class="form-group-1">
+                    <label for="logradouro">Logradouro:</label>
+                    <input id="logradouro" name="logradouro" type="text" th:field = "*{usuario.Endereco.logradouro}"/>
+                    <label for="numero">Número:</label>
+                    <input id="numero" name="numero" type="text" th:field = "*{usuario.Endereco.numeroResidencia}"/>
+                    <label for="complemento">Complemento:</label>
+                    <input id="complemento" name="complemento" type="text" th:field = "*{usuario.Endereco.complemento}"/>
+                </div>
+                <div class="form-group button-group">
+                    <button type="reset">Limpar</button>
+                    <button class="submit-btn" type="submit">Salvar</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:insert="~{menu_lateral :: menu_lateral}"></div>
+</div>
+
+<div th:insert="~{rodape :: rodape}"></div>
+
+</body>
+</html>

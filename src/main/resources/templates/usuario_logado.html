@@ -1,0 +1,27 @@
+<html lang="pt-BR">
+ <head>
+     <meta charset="UTF-8">
+     <link th:href="@{/css/usuario_logado.css}" rel="stylesheet" />
+     <link th:href="@{/css/common.css}" rel="stylesheet" />
+     <link th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
+     <script type="text/javascript" th:src="@{/js/jquery-3.7.0.js}"></script>
+     <script type="text/javascript" th:src="@{/js/toastr.min.js}"></script>
+     <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <title>Psico Apoia</title>
+ </head>
+ <body>
+
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+    <div class="header-3">
+        <div class="logo-home">
+            <img src="./img/logo_home.png"/>
+        </div>
+
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
+    </div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
+ </body>       
+</html>

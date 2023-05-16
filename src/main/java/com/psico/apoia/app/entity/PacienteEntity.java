@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "paciente")
@@ -24,4 +24,15 @@ public class PacienteEntity {
     private String numeroRg;
     private String email;
     private String telefone;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
+    private EnderecoEntity endereco;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private UsuarioEntity usuario;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="paciente")
+    private List<AgendamentoEntity> agendamentosPsicologo;
 }

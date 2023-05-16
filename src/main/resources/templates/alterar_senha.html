@@ -1,0 +1,61 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/alterar_senha.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <link th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/jquery-3.7.0.js}"></script>
+    <script type="text/javascript" th:src="@{/js/toastr.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <title>Psico Apoia</title>
+</head>
+<body>
+
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+    <div class="header-3">
+        <div class="container">
+            <section>
+                <h1>Alterar senha</h1>
+            </section>
+            <form id="form" class="form" action="#" th:action="@{/alterar-senha}" method="post">
+                <div class="form-content">
+                    <label for="att_password">Senha atual</label>
+                    <input
+                            type="password"
+                            id="att_password"
+                            placeholder="digite aqui a senha atual"
+                            th:field="*{alteracaoSenha.senhaAtual}"
+                    />
+                    <a>Aqui vai a mensagem de erro</a>
+                </div>
+                <div class="form-content">
+                    <label for="new_password">Nova senha</label>
+                    <input
+                            type="password"
+                            id="new_password"
+                            placeholder="digite aqui a nova senha"
+                            th:field="*{alteracaoSenha.senha}"
+                    />
+                    <a>Aqui vai a mensagem de erro</a>
+                </div>
+                <div class="form-content">
+                    <label for="confirm">Confirmar nova senha</label>
+                    <input
+                            type="password"
+                            id="confirm"
+                            placeholder="Confirme a nova senha"
+                            th:field="*{alteracaoSenha.senhaConfirmacao}"
+                    />
+                    <a>Aqui vai a mensagem de erro</a>
+                </div>
+                <button type="save">Salvar</button>
+            </form>
+        </div>
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
+    </div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
+</body>
+</html>

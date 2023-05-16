@@ -1,10 +1,15 @@
 package com.psico.apoia.app.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class Paciente {
 
     @JsonProperty
@@ -21,60 +26,8 @@ public class Paciente {
     private String email;
     @JsonProperty
     private String telefone;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getNumeroCpf() {
-        return numeroCpf;
-    }
-
-    public void setNumeroCpf(String numeroCpf) {
-        this.numeroCpf = numeroCpf;
-    }
-
-    public String getNumeroRg() {
-        return numeroRg;
-    }
-
-    public void setNumeroRg(String numeroRg) {
-        this.numeroRg = numeroRg;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+    @JsonProperty
+    private Endereco endereco;
+    @JsonProperty
+    private Integer idUsuario;
 }

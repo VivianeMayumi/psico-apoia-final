@@ -6,11 +6,17 @@ import java.util.List;
 
 public interface IPacienteService {
 
-    public Paciente criarPaciente(Paciente paciente);
+    Paciente obterPacientePorId(Integer id);
 
-    public List<Paciente> obterPacientePorNome(String nome);
+    Paciente obterPacientePorIdUsuario(Integer idUsuario);
 
-    public Paciente atualizarPaciente(Paciente paciente);
+    Paciente criarPaciente(Paciente paciente);
 
-    public void deletarPaciente(Integer idPaciente);
+    List<Paciente> obterPacientePorNome(String nome);
+
+    Paciente atualizarPaciente(Paciente paciente);
+
+    void deletarPaciente(Integer idPaciente);
+
+    public List<Paciente> obterTodosPacientes();
 }

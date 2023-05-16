@@ -1,0 +1,18 @@
+<div class="header-4" th:fragment="menu_lateral">
+    <div class="menu-lateral">
+        <div class="icone-usuario">
+            <img src="./img/icone_usuario.png"/>
+        </div>
+        <p id="usuario" th:text=${session.usuario.nome}></p>
+        <ul>
+            <li><a href="/carregar-meu-cadastro">Meu Cadastro</a></li>
+            <hr>
+            <li><a href="/carregar-alterar-senha">Alterar Senha</a></li>
+            <hr>
+            <li><a href="/carregar-agendamento">Agendamento</a></li>
+            <hr>
+            <li><a href="/carregar-excluir-conta">Excluir Conta</a></li>
+            <hr>
+        </ul>
+    </div>
+</div>

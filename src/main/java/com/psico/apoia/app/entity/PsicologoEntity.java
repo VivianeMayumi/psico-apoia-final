@@ -16,7 +16,7 @@ public class PsicologoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idUsuario;
+    private Integer id;
     private String nome;
     private Date dataNascimento;
     private String numeroCrp;
@@ -24,4 +24,8 @@ public class PsicologoEntity {
     private String numeroRg;
     private String email;
     private String telefone;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
+    private EnderecoEntity endereco;
 }
