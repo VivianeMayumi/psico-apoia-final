@@ -97,12 +97,9 @@ O projeto foi desenvolvido utilizando as seguintes tecnologia:
 - Sayuri [https://github.com/SayuriNishida](https://github.com/SayuriNishida)
 - Vinícius [https://github.com/vinivilasboas](https://github.com/vinivilasboas)
 - Viviane [https://github.com/VivianeMayumi](https://github.com/VivianeMayumi)
-- Thales [https://github.com/thalesreis7](https://github.com/thalesreis7)
-
 
 ### **Links do Protótipo:**
 ### Figma
 - [Projeto Psico-Apoia](https://www.figma.com/file/5Qgnlb4bif02muZjrxCVsX/PSICO-APOIA-FINAL-2%C2%AAENTREGA?type=design&node-id=0%3A1&t=yDJoWnupUdKHKgpk-1)
 
 ### Youtube
-- [Projeto Psico-Apoia](https://www.youtube.com/watch?v=i_8oWOo4A8U&t=1s&ab_channel=SaraThaise)
