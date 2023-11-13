@@ -16,5 +16,7 @@ public interface IPsicologoService {
     public Iterable<Psicologo> obterPsicologoPorNome(String nome) throws PsicologoNaoEncontradoException;
 
     public Iterable<Psicologo> obterTodosPsicologos();
+
+    public Psicologo obterPsicologoPorIdUsuario(Integer idUsuario);
 }
 

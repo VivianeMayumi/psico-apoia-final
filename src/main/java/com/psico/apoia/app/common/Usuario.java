@@ -1,6 +1,7 @@
 package com.psico.apoia.app.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.psico.apoia.app.enums.TipoUsuarioEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +24,8 @@ public class Usuario {
     @JsonProperty
     private String numeroCpf;
     @JsonProperty
+    private String numeroCrp;
+    @JsonProperty
     private String numeroRg;
     @JsonProperty
     private String email;
@@ -36,6 +39,8 @@ public class Usuario {
     private String senhaConfirmacao;
     @JsonProperty
     private Endereco endereco;
+    @JsonProperty
+    private String tipoUsuario;
 
     public Usuario(String usuario, String senha) {
         this.usuario = usuario;

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link th:href="@{/css/quem_somos.css}" rel="stylesheet" />
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
+    <title>Psico Apoia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+    <div class="header-3">
+        <div class="caixa">
+            <h1>
+                PROXIMAS PALESTRAS
+            </h1>
+
+            <div th:each="palestra : ${palestras}">
+                Título: <span th:text="${palestra.titulo}"></span><br>
+                Palestrante: <span th:text="${palestra.palestrante}"></span><br>
+                <span th:text="${#temporals.format(palestra.dataHora, 'dd/MM/yyyy HH:mm')}"> Data / Hora </span><br>
+                <form th:action="@{/carregar-palestra}" th:object="${palestra}" method="post">
+                    <input type="hidden" name="id" th:value="${palestra.id}">
+                    <input type="hidden" name="titulo" th:value="${palestra.titulo}">
+                    <input type="hidden" name="descricao" th:value="${palestra.descricao}">
+                    <input type="hidden" name="palestrante" th:value="${palestra.palestrante}">
+                    <input type="hidden" name="dataHora" th:value="${palestra.dataHora}">
+                    <input type="hidden" name="link" th:value="${palestra.link}">
+                    <button type="submit">Saiba Mais</button>
+                </form>
+                <br>
+            </div>
+
+        </div>
+    </div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
+</body>
+</html>

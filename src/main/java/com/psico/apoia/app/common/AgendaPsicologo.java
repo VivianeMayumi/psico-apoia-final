@@ -22,5 +22,11 @@ public class AgendaPsicologo {
     @JsonProperty
     private Psicologo psicologo;
     @JsonProperty
+    private Paciente paciente;
+    @JsonProperty
     private boolean disponivel;
+    @JsonProperty
+    private String status;
+    @JsonProperty
+    private String link;
 }

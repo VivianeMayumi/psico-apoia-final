@@ -8,7 +8,6 @@ import com.psico.apoia.app.service.IAgendamentoService;
 import com.psico.apoia.app.service.IPacienteService;
 import com.psico.apoia.app.service.IPsicologoService;
 import jakarta.servlet.http.HttpSession;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,6 +46,7 @@ public class AgendamentoViewController {
         try {
             Usuario usuario = (Usuario) session.getAttribute("usuario");
             Paciente paciente = pacienteService.obterPacientePorIdUsuario(usuario.getId());
+            // TODO: Validar se agenda.getId() é nulo, pois isso indica que o usuario nao selecionou o que deveria selecionar...
             agendamentoService.agendarSessao(paciente.getId(), agenda.getId());
         } catch(Exception e) {
             model.addAttribute("mensagemErro", "Erro ao realizar o agendamento!");

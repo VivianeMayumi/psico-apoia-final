@@ -13,7 +13,8 @@ import lombok.Setter;
 public class EnderecoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "SEQ_ENDERECO", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "SEQ_ENDERECO", sequenceName = "SEQ_ENDERECO", allocationSize = 1)
     private Integer id;
 
     private Integer cep;

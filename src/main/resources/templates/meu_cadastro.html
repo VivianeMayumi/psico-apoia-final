@@ -29,6 +29,8 @@
                     <input class="form-group-1-inputs" id="cpf" name="cpf" type="text" th:field = "*{usuario.numeroCpf}"/>
                     <label for="rg">RG:</label>
                     <input class="form-group-1-inputs" id="rg" name="rg" type="text"th:field = "*{usuario.numeroRg}"/>
+                    <label th:if="${usuario.tipoUsuario == 'PSICOLOGO'}" for="crp">CRP:</label>
+                    <input th:if="${usuario.tipoUsuario == 'PSICOLOGO'}" class="form-group-1-inputs" id="crp" name="crp" type="text" th:field="*{usuario.numeroCrp}"/>
                 </div>
                 <div class="form-group">
                     <label for="e_mail">E-mail:</label>
