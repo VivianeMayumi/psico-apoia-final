@@ -14,6 +14,7 @@ import com.psico.apoia.app.mapper.UsuarioMapper;
 import com.psico.apoia.app.repository.PacienteRepository;
 import com.psico.apoia.app.repository.PsicologoRepository;
 import com.psico.apoia.app.repository.UsuarioRepository;
+import com.psico.apoia.app.service.IPsicologoService;
 import com.psico.apoia.app.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Autowired
     private PacienteServiceImpl pacienteServiceImpl;
+
+    @Autowired
+    private IPsicologoService psicologoService;
 
     @Override
     public boolean validarUsuario(String usuario, String senha) {
@@ -127,13 +131,23 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public Usuario alterarUsuario(Usuario usuario) {
         Optional<UsuarioEntity> optinalUsuarioEntityBancoDados = usuarioRepository.findById(usuario.getId());
         return optinalUsuarioEntityBancoDados.map(usuarioEntityBancoDados ->{
-            Paciente paciente = usuarioMapper.usuarioToPaciente(usuario); //método que converte objeto usuário em objeto paciente
-            paciente.setId(usuario.getId()); //copia o id de um para o outro
-            Paciente pacienteAtualizado = pacienteServiceImpl.atualizarPaciente(paciente);
-            Usuario usuarioAtualizado = usuarioMapper. pacienteToUsuario(pacienteAtualizado);//set de paciente em usuário implementado em mapper
-
+            Usuario usuarioAtualizado = null;
+            if(TipoUsuarioEnum.PACIENTE.name().equals(usuario.getTipoUsuario())) {
+                Paciente pacienteBaseDados = pacienteServiceImpl.obterPacientePorIdUsuario(usuario.getId());
+                Paciente paciente = usuarioMapper.usuarioToPaciente(usuario); //método que converte objeto usuário em objeto paciente
+                paciente.setId(pacienteBaseDados.getId());
+                Paciente pacienteAtualizado = pacienteServiceImpl.atualizarPaciente(paciente);
+                usuarioAtualizado = usuarioMapper.pacienteToUsuario(pacienteAtualizado);//set de paciente em usuário implementado em mapper
+                usuarioAtualizado.setTipoUsuario(TipoUsuarioEnum.PACIENTE.name());
+            } else if(TipoUsuarioEnum.PSICOLOGO.name().equals(usuario.getTipoUsuario())) {
+                Psicologo psicologoBaseDados = psicologoService.obterPsicologoPorIdUsuario(usuario.getId());
+                Psicologo psicologo = usuarioMapper.usuarioToPsicologo(usuario);
+                psicologo.setId(psicologoBaseDados.getId());
+                Psicologo psicologoAtualizado = psicologoService.atualizarPsicologo(psicologo);
+                usuarioAtualizado = usuarioMapper.psicologoToUsuario(psicologoAtualizado);
+                usuarioAtualizado.setTipoUsuario(TipoUsuarioEnum.PSICOLOGO.name());
+            }
             return usuarioAtualizado;
         }).orElse(null);
-
     }
 }

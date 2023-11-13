@@ -17,6 +17,7 @@ public interface PacienteMapper {
 
     PacienteEntity pacienteToPacienteEntity(@MappingTarget PacienteEntity pacienteTarget, Paciente pacienteSource);
 
+    @Mapping(source = "usuario.id", target = "idUsuario")
     Paciente pacienteEntityToPaciente(PacienteEntity paciente);
 
     @Mapping(ignore = true, source = "usuario", target = "usuario")
