@@ -29,6 +29,7 @@ public class Psicologo{
     private String telefone;
     @JsonProperty
     private Endereco endereco;
-
+    @JsonProperty
+    private Integer idUsuario;
 
 }

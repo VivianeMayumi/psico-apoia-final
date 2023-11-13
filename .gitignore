@@ -9,6 +9,7 @@ target/
 .idea/compiler.xml
 .idea/libraries/
 .idea/.gitignore
+.idea/sonarlint/
 .idea/encodings.xml
 .idea/misc.xml
 .idea/uiDesigner.xml
@@ -16,6 +17,8 @@ target/
 *.iws
 *.iml
 *.ipr
+git_toolbox_prj.xml
+workspace.xml
 
 ### Eclipse ###
 .apt_generated

@@ -16,7 +16,7 @@ public class MeuCadastroViewController {
     private IUsuarioService usuarioService;
 
     @GetMapping("/carregar-meu-cadastro")
-    public String carregarHome(Model model, HttpSession session) {
+    public String carregarMeuCadastro(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         model.addAttribute("usuario", usuario);
         return "meu_cadastro";

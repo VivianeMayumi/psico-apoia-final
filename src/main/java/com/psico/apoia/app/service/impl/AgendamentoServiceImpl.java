@@ -1,12 +1,14 @@
 package com.psico.apoia.app.service.impl;
 
 import com.psico.apoia.app.common.AgendaPsicologo;
-import com.psico.apoia.app.common.Paciente;
+import com.psico.apoia.app.common.Agendamento;
 import com.psico.apoia.app.entity.AgendaPsicologoEntity;
 import com.psico.apoia.app.entity.AgendamentoEntity;
 import com.psico.apoia.app.entity.PacienteEntity;
 import com.psico.apoia.app.entity.PsicologoEntity;
+import com.psico.apoia.app.enums.StatusEnum;
 import com.psico.apoia.app.mapper.AgendaPsicologoMapper;
+import com.psico.apoia.app.mapper.AgendamentoMapper;
 import com.psico.apoia.app.repository.AgendaPsicologoRepository;
 import com.psico.apoia.app.repository.AgendamentoRepository;
 import com.psico.apoia.app.repository.PacienteRepository;
@@ -14,6 +16,7 @@ import com.psico.apoia.app.repository.PsicologoRepository;
 import com.psico.apoia.app.service.IAgendamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -37,6 +40,9 @@ public class AgendamentoServiceImpl implements IAgendamentoService {
 
     @Autowired
     private AgendaPsicologoMapper agendaPsicologoMapper;
+
+    @Autowired
+    private AgendamentoMapper agendamentoMapper;
 
     @Override
     public AgendaPsicologoEntity criarAgendaComDiasDoMes(int mes, int ano, PsicologoEntity psicologo) {
@@ -72,12 +78,35 @@ public class AgendamentoServiceImpl implements IAgendamentoService {
         agendamentoRepository.save(agendamentoEntity);
         optionalAgendaPsicologoEntity.ifPresent(agendaPsicologoEntity -> {
             agendaPsicologoEntity.setDisponivel(false);
+            agendaPsicologoEntity.setStatus(StatusEnum.A_CONFIRMAR.getDescricao());
             agendaPsicologoRepository.save(agendaPsicologoEntity);
         });
     }
 
     @Override
-    public void cancelarAgendamento(AgendaPsicologo agendaPsicologo) {
+    @Transactional
+    public void cancelarAgendamento(Integer idAgendamento) {
+        Optional<AgendamentoEntity> optionalAgendamentoEntity = agendamentoRepository.findById(idAgendamento);
+        optionalAgendamentoEntity.ifPresent(agendamentoEntity -> {
 
+            Optional<AgendaPsicologoEntity> optionalAgendaPsicologoEntity = agendaPsicologoRepository.findById(agendamentoEntity.getAgendaPsicologoEntity().getId());
+            optionalAgendaPsicologoEntity.ifPresent(agendaPsicologoEntity -> {
+                agendaPsicologoEntity.setStatus(StatusEnum.DISPONIVEL.getDescricao());
+                agendaPsicologoEntity.setDisponivel(true);
+                agendaPsicologoEntity.setLink(null);
+                agendaPsicologoEntity.setAgendamento(null);
+                agendaPsicologoRepository.save(agendaPsicologoEntity);
+            });
+
+            agendamentoEntity.setPaciente(null);
+            agendamentoEntity.setAgendaPsicologoEntity(null);
+            agendamentoRepository.delete(agendamentoEntity);
+        });
+    }
+
+    @Override
+    public List<Agendamento> obterAgendamentosPaciente(Integer idPaciente) {
+        List<AgendamentoEntity> agendamentoEntityList = agendamentoRepository.buscarPorPacienteId(idPaciente);
+        return agendamentoMapper.agendamentoEntityToAgendamento(agendamentoEntityList);
     }
 }

@@ -18,7 +18,7 @@ public class AutenticacaoController {
 
     @PostMapping(value = "/cadastrar-login")
     public ResponseEntity<Object> cadastrar(@RequestBody Usuario usuario) {
-        autenticacaoService.criarUsuario(usuario.getEmail(), usuario.getSenha(), usuario.getSenhaConfirmacao());
+        autenticacaoService.criarUsuario(usuario);
         return ResponseEntity.ok().build();
     }
 

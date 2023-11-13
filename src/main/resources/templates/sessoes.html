@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <link th:href="@{/css/excluir_conta.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <link th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
+    <title>Psico Apoia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+    <div class="header-3">
+        <div class="container">
+            <h1>
+                SESSÕES
+            </h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Data/Hora</th>
+                        <th scope="col">Paciente</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Link</th>
+                        <th scope="col">Confirmar</th>
+                        <th scope="col">Cancelar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${sessoes != null and !sessoes.isEmpty()}" scope="row" th:each="sessao : ${sessoes}">
+                        <td th:text="${#temporals.format(sessao.dataHora, 'dd/MM/yyyy HH:mm')}"></td>
+                        <td th:if="${sessao.paciente != null and sessao.paciente.nome != null}" th:text="${sessao.paciente.nome}"></td>
+                        <td th:if="${sessao.paciente == null or sessao.paciente.nome == null}"></td>
+                        <td th:text="${sessao.status}"></td>
+                        <td th:text="${sessao.link}"></td>
+                        <td class="text-dark">
+                            <form th:if="${sessao.status != null and sessao.status == 'A Confirmar'}" th:object="${sessao}" th:action="@{/carregar-confirmar-sessao}" th:method="get">
+                                <input type="hidden" name="id" th:value="${sessao.id}">
+                                <input type="hidden" name="dataHora" th:value="${sessao.dataHora}">
+                                <input type="hidden" name="paciente.nome" th:value="${sessao.paciente.nome}">
+                                <button type="submit">Confirmar</button>
+                            </form>
+                        </td>
+                        <td class="text-dark">
+                            <form th:object="${sessao}" th:action="@{/carregar-confirmar-cancelar-sessao-psicologo}" th:method="get">
+                                <input type="hidden" name="id" th:value="${sessao.id}">
+                                <input type="hidden" name="dataHora" th:value="${sessao.dataHora}">
+                                <button type="submit">Cancelar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr th:unless="${sessoes != null and !sessoes.isEmpty()}" scope="row">
+                        <td colspan="5">Nenhuma sesão encontrada</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" id="botaoCadastrarNovaSessao"><a id="linkCadastrarNovaSessao" href="/carregar-cadastrar-nova-sessao">Cadastrar Nova Sessão</a></button>
+        </div>
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
+    </div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
+</body>
+</html>

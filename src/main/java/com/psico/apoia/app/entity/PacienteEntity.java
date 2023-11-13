@@ -16,7 +16,8 @@ import java.util.List;
 public class PacienteEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "SEQ_PACIENTE", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "SEQ_PACIENTE", sequenceName = "SEQ_PACIENTE", allocationSize = 1)
     private Integer id;
     private String nome;
     private LocalDate dataNascimento;

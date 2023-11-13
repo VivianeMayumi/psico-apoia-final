@@ -8,7 +8,7 @@ public interface IUsuarioService {
 
     public Usuario obterUsuario(String usuario);
 
-    public Usuario criarUsuario(String usuario, String senha, String senhaConfirmacao);
+    public Usuario criarUsuario(Usuario usuario);
 
     public void alterarSenha(Integer id, String senhaAntiga, String senhaNova, String senhaNovaConfirmacao);
 
