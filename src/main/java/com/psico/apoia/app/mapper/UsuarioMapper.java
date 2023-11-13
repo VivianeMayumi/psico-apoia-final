@@ -20,6 +20,8 @@ public interface UsuarioMapper {
 
     Usuario pacienteToUsuario(Paciente paciente);
 
+    Usuario psicologoToUsuario(Psicologo psicologo);
+
     Psicologo usuarioToPsicologo(Usuario usuario);
 
     UsuarioEntity usuarioToUsuarioEntity(@MappingTarget UsuarioEntity usuarioTarget, Usuario usuarioSource);

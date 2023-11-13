@@ -18,5 +18,7 @@ public interface IPsicologoService {
     public Iterable<Psicologo> obterTodosPsicologos();
 
     public Psicologo obterPsicologoPorIdUsuario(Integer idUsuario);
+
+    public Psicologo atualizarPsicologo(Psicologo psicologo);
 }
 
