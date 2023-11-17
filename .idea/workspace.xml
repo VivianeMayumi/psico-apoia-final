@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cc9366c-2b5c-45b2-b9b9-215f40803870" name="Changes" comment="Correção do 'quem somos'">
+    <list default="true" id="8cc9366c-2b5c-45b2-b9b9-215f40803870" name="Changes" comment="Finalização do 'quem somos' e ajustes no 'Doação'">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/psico/apoia/app/controller/PrimeiroAcessoPacienteViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/psico/apoia/app/controller/PrimeiroAcessoPsicologoViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/primeiro_acesso_paciente.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/primeiro_acesso_psicologo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/doacao.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/doacao.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/quem_somos.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/quem_somos.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/quem_somos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/quem_somos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/psico/apoia/app/controller/PrimeiroAcessoViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/psico/apoia/app/controller/PrimeiroAcessoViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/psico/apoia/app/entity/PsicologoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/psico/apoia/app/entity/PsicologoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/psico/apoia/app/entity/UsuarioEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/psico/apoia/app/entity/UsuarioEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/primeiro_acesso.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/primeiro_acesso.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/primeiro_acesso.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/primeiro_acesso.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +23,15 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -51,6 +66,9 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="t8rgt1jy" />
   </component>
@@ -73,6 +91,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
@@ -118,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700059956061</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Finalização do 'quem somos' e ajustes no 'Doação'">
+      <option name="closed" value="true" />
+      <created>1700072134212</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700072134212</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,7 +167,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Correção do 'quem somos'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correção do 'quem somos'" />
+    <MESSAGE value="Finalização do 'quem somos' e ajustes no 'Doação'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalização do 'quem somos' e ajustes no 'Doação'" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
