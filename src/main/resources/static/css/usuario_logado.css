@@ -17,6 +17,10 @@ main{
     text-transform: uppercase;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+
 .col-100{
     width: 100%;
     float: left;
@@ -112,14 +116,14 @@ main{
     font-size: 20px;
     font-weight: bold;
     float: left;
-    margin-left: 130px ;
+    margin-left: 20px ;
 
 }
 
 .menu-lateral ul li{
     display: inline-block;
     color: #F08700;
-    margin-left: 200px;
+    margin-left: 20px;
     margin-top: 0;
     padding-top: 8%;
 }
@@ -217,5 +221,6 @@ h1{
     visibility: hidden;
 
 }
+
 
 
