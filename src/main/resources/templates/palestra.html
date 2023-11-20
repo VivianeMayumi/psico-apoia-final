@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <link th:href="@{/css/quem_somos.css}" rel="stylesheet" />
-    <link th:href="@{/css/common.css}" rel="stylesheet" />
+    <link th:href="@{/css/palestra.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
     <title>Psico Apoia</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 
-    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+<nav th:insert="~{cabecalho :: cabecalho}"></nav>
 
-    <div class="header-3">
-        <div class="caixa">
-            <h1>
-                PALESTRA
-            </h1>
+<div class="header-3">
+    <div class="palestra-container">
+        <h1 class="titulo">
+            PALESTRA
+        </h1>
 
-
-            Título: <span th:text="${palestra.titulo}"></span><br>
-            Palestrante: <span th:text="${palestra.palestrante}"></span><br>
-            <span th:text="${#temporals.format(palestra.dataHora, 'dd/MM/yyyy HH:mm')}"> Data / Hora </span><br>
-            Descrição:<br>
+        <div>
+            <h2 class="subtitulo">Título: <span th:text="${palestra.titulo}"></span><br></h2>
+            <p class="palestrante">Palestrante: <span th:text="${palestra.palestrante}"></span><br></p>
+            <p class="data-hora"><span th:text="${#temporals.format(palestra.dataHora, 'dd/MM/yyyy HH:mm')}"> Data / Hora </span><br></p>
+            <p class="descricao">Descrição:<br>
             <span th:text="${palestra.descricao}"></span><br>
-            <br>
-            <a th:href="@{${palestra.link}}">link</a>
+                <br></p>
+            <a class="link" th:href="@{${palestra.link}}">link</a>
             <p>
-                <button type="button" id="botaoVoltar"><a id="linkVoltar" href="/carregar-palestras">Voltar</a></button>
+                <a class="button-link" id="linkVoltar" href="/carregar-palestras">Voltar</a></button>
             </p>
-
         </div>
     </div>
+</div>
 
-    <div th:insert="~{rodape :: rodape}"></div>
+<div th:insert="~{rodape :: rodape}"></div>
 
 </body>
 </html>

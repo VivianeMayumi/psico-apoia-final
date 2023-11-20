@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
-    <link th:href="@{/css/excluir_conta.css}" rel="stylesheet"/>
+    <link th:href="@{/css/sessoes.css}" rel="stylesheet"/>
     <link th:href="@{/css/common.css}" rel="stylesheet"/>
     <link th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
     <title>Psico Apoia</title>
@@ -18,8 +18,15 @@
             </h1>
 
             <table class="table">
+                <colgroup>
+                    <col style="width: 16%">
+                    <col style="width: 16%">
+                    <col style="width: 16%">
+                    <col style="width: 32%">
+                    <col style="width: 16%">
+                </colgroup>
                 <thead>
-                    <tr>
+                    <tr class="col-titles">
                         <th scope="col">Data/Hora</th>
                         <th scope="col">Psicólogo</th>
                         <th scope="col">Status</th>
