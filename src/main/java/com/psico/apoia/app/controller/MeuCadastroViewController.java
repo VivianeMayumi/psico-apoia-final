@@ -16,18 +16,20 @@ public class MeuCadastroViewController {
     private IUsuarioService usuarioService;
 
     @GetMapping("/carregar-meu-cadastro")
-    public String carregarHome(Model model, HttpSession session) {
+    public String carregarMeuCadastro(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        model.addAttribute("usuario", usuario);
+        model.addAttribute("usuarioCadastro", usuario);
         return "meu_cadastro";
     }
 
     @PostMapping("/atualizar-meu-cadastro")
-    public String alterarCadastro(HttpSession session, Model model, Usuario usuario){
+    public String alterarCadastro(HttpSession session, Model model, Usuario usuario) {
         Usuario usuarioLogado = (Usuario) session.getAttribute("usuario");
         usuario.setId(usuarioLogado.getId());
+        usuario.setTipoUsuario(usuarioLogado.getTipoUsuario());
         Usuario usuarioAtualizado = usuarioService.alterarUsuario(usuario);
         session.setAttribute("usuario", usuarioAtualizado);
+        model.addAttribute("usuarioCadastro", usuario);
         model.addAttribute("mensagemSucesso", "Cadastro atualizado com sucesso!");
         return "meu_cadastro";
     }

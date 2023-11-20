@@ -1,7 +1,10 @@
 package com.psico.apoia.app.mapper;
+import com.psico.apoia.app.common.Usuario;
+import com.psico.apoia.app.entity.PacienteEntity;
 import com.psico.apoia.app.entity.PsicologoEntity;
 import com.psico.apoia.app.common.Psicologo;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 
@@ -18,5 +21,8 @@ public interface PsicologoMapper {
     Psicologo psicologoEntityToPsicologo(PsicologoEntity psicologo);
 
     Iterable<Psicologo> psicologoEntityToPsicologo(Iterable<PsicologoEntity> psicologosEntity);
+
+    @Mapping(ignore = true, source = "usuario", target = "usuario")
+    Usuario psicologoEntityToUsuario(PsicologoEntity psicologo);
 }
 

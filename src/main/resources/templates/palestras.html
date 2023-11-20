@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link th:href="@{/css/palestras.css}" rel="stylesheet" />
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
+    <title>Psico Apoia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+    <div class="header-3">
+        <div class="palestra-container">
+            <h1 class="titulo">PRÓXIMAS PALESTRAS</h1>
+
+            <div  class="palestra-item" th:each="palestra : ${palestras}">
+                <h2 class="subtitulo" th:text="'Título: '+ ${palestra.titulo}"></h2>
+                <p class="palestrante" th:text="'Palestrante: '+ ${palestra.palestrante}"></p>
+                <p class="data-hora" th:text="${#temporals.format(palestra.dataHora, 'dd/MM/yyyy HH:mm')}"></p>
+                <form th:action="@{/carregar-palestra}" th:object="${palestra}" method="post">
+                    <input type="hidden" name="id" th:value="${palestra.id}">
+                    <input type="hidden" name="titulo" th:value="${palestra.titulo}">
+                    <input type="hidden" name="descricao" th:value="${palestra.descricao}">
+                    <input type="hidden" name="palestrante" th:value="${palestra.palestrante}">
+                    <input type="hidden" name="dataHora" th:value="${palestra.dataHora}">
+                    <input type="hidden" name="link" th:value="${palestra.link}">
+                    <button id="saibaMaisPalestra" type="submit">Saiba Mais</button>
+                </form>
+                <br>
+            </div>
+
+        </div>
+    </div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
+</body>
+</html>

@@ -9,4 +9,6 @@ import java.util.List;
 public interface AgendaPsicologoRepository extends CrudRepository<AgendaPsicologoEntity, Integer> {
 
     List<AgendaPsicologoEntity> findByPsicologoIdAndDisponivel(Integer idPsicologo, Boolean disponivel);
+
+    List<AgendaPsicologoEntity> findByPsicologoId(Integer idPsicologo);
 }

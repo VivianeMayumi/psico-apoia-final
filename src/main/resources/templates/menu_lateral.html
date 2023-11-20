@@ -8,8 +8,12 @@
             <li><a href="/carregar-meu-cadastro">Meu Cadastro</a></li>
             <hr>
             <li><a href="/carregar-alterar-senha">Alterar Senha</a></li>
-            <hr>
-            <li><a href="/carregar-agendamento">Agendamento</a></li>
+            <hr th:if="${session.usuario.tipoUsuario == 'PACIENTE'}">
+            <li th:if="${session.usuario.tipoUsuario == 'PACIENTE'}"><a href="/carregar-agendamento">Agendamento</a></li>
+            <hr th:if="${session.usuario.tipoUsuario == 'PACIENTE'}">
+            <li th:if="${session.usuario.tipoUsuario == 'PACIENTE'}"><a href="/carregar-sessoes-agendadas">Sessões Agendadas</a></li>
+            <hr th:if="${session.usuario.tipoUsuario == 'PSICOLOGO'}">
+            <li th:if="${session.usuario.tipoUsuario == 'PSICOLOGO'}"><a href="/carregar-sessoes">Sessões</a></li>
             <hr>
             <li><a href="/carregar-excluir-conta">Excluir Conta</a></li>
             <hr>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <link th:href="@{/css/sessoes.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <link th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
+    <title>Psico Apoia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+    <div class="header-3">
+        <div class="container">
+            <h1>
+                SESSÕES AGENDADAS
+            </h1>
+
+            <table class="table">
+                <colgroup>
+                    <col style="width: 16%">
+                    <col style="width: 16%">
+                    <col style="width: 16%">
+                    <col style="width: 32%">
+                    <col style="width: 16%">
+                </colgroup>
+                <thead>
+                    <tr class="col-titles">
+                        <th scope="col">Data/Hora</th>
+                        <th scope="col">Psicólogo</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Link</th>
+                        <th scope="col">Cancelar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${agendamentos != null and !agendamentos.isEmpty()}" scope="row" th:each="agendamento : ${agendamentos}">
+                        <td th:text="${#temporals.format(agendamento.dataHora, 'dd/MM/yyyy HH:mm')}"></td>
+                        <td th:text="${agendamento.nomePsicologo}"></td>
+                        <td th:text="${agendamento.status}"></td>
+                        <td th:text="${agendamento.link}"></td>
+                        <td class="text-dark">
+                            <form th:object="${agendamento}" th:action="@{/carregar-confirmar-cancelar-sessao}" th:method="get">
+                                <input type="hidden" name="id" th:value="${agendamento.id}">
+                                <input type="hidden" name="dataHora" th:value="${agendamento.dataHora}">
+                                <input type="hidden" name="nomePsicologo" th:value="${agendamento.nomePsicologo}">
+                                <button type="submit">Cancelar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr th:unless="${agendamentos != null and !agendamentos.isEmpty()}" scope="row">
+                        <td colspan="5">Não existem sessões agendadas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
+    </div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
+</body>
+</html>

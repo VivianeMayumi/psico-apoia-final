@@ -19,4 +19,14 @@ public class Agendamento {
     private Integer id;
     @JsonProperty
     private Integer idPsicologo;
+    @JsonProperty
+    private LocalDateTime dataHora;
+    @JsonProperty
+    private String nomePsicologo;
+    @JsonProperty
+    private String status;
+    @JsonProperty
+    private String link;
+    @JsonProperty
+    private boolean cancelado;
 }

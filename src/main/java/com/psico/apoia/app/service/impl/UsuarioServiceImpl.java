@@ -1,14 +1,20 @@
 package com.psico.apoia.app.service.impl;
 
 import com.psico.apoia.app.common.Paciente;
+import com.psico.apoia.app.common.Psicologo;
 import com.psico.apoia.app.common.Usuario;
 import com.psico.apoia.app.entity.PacienteEntity;
+import com.psico.apoia.app.entity.PsicologoEntity;
 import com.psico.apoia.app.entity.UsuarioEntity;
+import com.psico.apoia.app.enums.TipoUsuarioEnum;
 import com.psico.apoia.app.exception.SenhaInvalidaException;
 import com.psico.apoia.app.mapper.PacienteMapper;
+import com.psico.apoia.app.mapper.PsicologoMapper;
 import com.psico.apoia.app.mapper.UsuarioMapper;
 import com.psico.apoia.app.repository.PacienteRepository;
+import com.psico.apoia.app.repository.PsicologoRepository;
 import com.psico.apoia.app.repository.UsuarioRepository;
+import com.psico.apoia.app.service.IPsicologoService;
 import com.psico.apoia.app.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,12 +31,22 @@ public class UsuarioServiceImpl implements IUsuarioService {
     private PacienteRepository pacienteRepository;
 
     @Autowired
+    private PsicologoRepository psicologoRepository;
+
+    @Autowired
     private UsuarioMapper usuarioMapper;
 
     @Autowired
     private PacienteMapper pacienteMapper;
+
+    @Autowired
+    private PsicologoMapper psicologoMapper;
+
     @Autowired
     private PacienteServiceImpl pacienteServiceImpl;
+
+    @Autowired
+    private IPsicologoService psicologoService;
 
     @Override
     public boolean validarUsuario(String usuario, String senha) {
@@ -43,31 +59,43 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     public Usuario obterUsuario(String usuario) {
         UsuarioEntity usuarioEncontrado = usuarioRepository.findByUsuario(usuario);
-        PacienteEntity pacienteEntity = pacienteRepository.findByUsuarioId(usuarioEncontrado.getId());
-        Usuario usuarioRetorno = pacienteMapper.pacienteEntityToUsuario(pacienteEntity);
+        Usuario usuarioRetorno = new Usuario();
+        if(TipoUsuarioEnum.PACIENTE.name().equals(usuarioEncontrado.getTipoUsuario())) {
+            PacienteEntity pacienteEntity = pacienteRepository.findByUsuarioId(usuarioEncontrado.getId());
+            usuarioRetorno = pacienteMapper.pacienteEntityToUsuario(pacienteEntity);
+        } else if(TipoUsuarioEnum.PSICOLOGO.name().equals(usuarioEncontrado.getTipoUsuario())) {
+            PsicologoEntity psicologoEntity = psicologoRepository.findByUsuarioId(usuarioEncontrado.getId());
+            usuarioRetorno = psicologoMapper.psicologoEntityToUsuario(psicologoEntity);
+        }
+
         usuarioRetorno.setId(usuarioEncontrado.getId());
         usuarioRetorno.setUsuario(usuarioEncontrado.getUsuario());
+        usuarioRetorno.setTipoUsuario(usuarioEncontrado.getTipoUsuario());
         return usuarioRetorno;
     }
 
     //validar senha com senhaConfirmada e verificar se foram preenchidas
     @Override
-    public Usuario criarUsuario(String nomeUsuario, String senha, String senhaConfirmacao)  {
+    public Usuario criarUsuario(Usuario usuario)  {
 
-        if(nomeUsuario == null||nomeUsuario.isEmpty()){
+        String nomeUsuario = usuario.getUsuario();
+        String senha = usuario.getSenha();
+        String senhaConfirmacao = usuario.getSenhaConfirmacao();
+
+        if(nomeUsuario == null || nomeUsuario.isEmpty()){
             throw new IllegalArgumentException("Usuário não preenchido!");
-        }else if(senha==null ||senha.isEmpty()||  senhaConfirmacao == null|| senhaConfirmacao.isEmpty()){
+        }else if(senha == null || senha.isEmpty() ||  senhaConfirmacao == null || senhaConfirmacao.isEmpty()){
             throw new IllegalArgumentException("Senha não informada, por favor preencher");
         }
         UsuarioEntity usuarioBusca = usuarioRepository.findByUsuario(nomeUsuario);
-        if(usuarioBusca!=null){
+        if(usuarioBusca != null){
             throw new IllegalArgumentException("Usuário já existente!");
         }else if (senha.equals(senhaConfirmacao)) {
-            Usuario usuario = new Usuario(nomeUsuario, senha);
-            UsuarioEntity usuarioEntity = usuarioMapper.usuarioToUsuarioEntity(usuario);
+            Usuario usuarioNew = new Usuario(nomeUsuario, senha);
+            usuarioNew.setTipoUsuario(usuario.getTipoUsuario());
+            UsuarioEntity usuarioEntity = usuarioMapper.usuarioToUsuarioEntity(usuarioNew);
             UsuarioEntity usuarioCriado = usuarioRepository.save(usuarioEntity);
             return usuarioMapper.usuarioEntityToUsuario(usuarioCriado);
-
         }
         throw new IllegalArgumentException("As senhas não correspondem.");
     }
@@ -103,13 +131,23 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public Usuario alterarUsuario(Usuario usuario) {
         Optional<UsuarioEntity> optinalUsuarioEntityBancoDados = usuarioRepository.findById(usuario.getId());
         return optinalUsuarioEntityBancoDados.map(usuarioEntityBancoDados ->{
-            Paciente paciente = usuarioMapper.usuarioToPaciente(usuario); //método que converte objeto usuário em objeto paciente
-            paciente.setId(usuario.getId()); //copia o id de um para o outro
-            Paciente pacienteAtualizado = pacienteServiceImpl.atualizarPaciente(paciente);
-            Usuario usuarioAtualizado = usuarioMapper. pacienteToUsuario(pacienteAtualizado);//set de paciente em usuário implementado em mapper
-
+            Usuario usuarioAtualizado = null;
+            if(TipoUsuarioEnum.PACIENTE.name().equals(usuario.getTipoUsuario())) {
+                Paciente pacienteBaseDados = pacienteServiceImpl.obterPacientePorIdUsuario(usuario.getId());
+                Paciente paciente = usuarioMapper.usuarioToPaciente(usuario); //método que converte objeto usuário em objeto paciente
+                paciente.setId(pacienteBaseDados.getId());
+                Paciente pacienteAtualizado = pacienteServiceImpl.atualizarPaciente(paciente);
+                usuarioAtualizado = usuarioMapper.pacienteToUsuario(pacienteAtualizado);//set de paciente em usuário implementado em mapper
+                usuarioAtualizado.setTipoUsuario(TipoUsuarioEnum.PACIENTE.name());
+            } else if(TipoUsuarioEnum.PSICOLOGO.name().equals(usuario.getTipoUsuario())) {
+                Psicologo psicologoBaseDados = psicologoService.obterPsicologoPorIdUsuario(usuario.getId());
+                Psicologo psicologo = usuarioMapper.usuarioToPsicologo(usuario);
+                psicologo.setId(psicologoBaseDados.getId());
+                Psicologo psicologoAtualizado = psicologoService.atualizarPsicologo(psicologo);
+                usuarioAtualizado = usuarioMapper.psicologoToUsuario(psicologoAtualizado);
+                usuarioAtualizado.setTipoUsuario(TipoUsuarioEnum.PSICOLOGO.name());
+            }
             return usuarioAtualizado;
         }).orElse(null);
-
     }
 }

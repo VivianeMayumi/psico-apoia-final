@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <link th:href="@{/css/excluir_conta.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <link th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
+    <title>Psico Apoia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+    <nav th:insert="~{cabecalho :: cabecalho}"></nav>
+
+    <div class="header-3">
+        <div class="container">
+            <h1>
+                CADASTRAR NOVA SESSÃO
+            </h1>
+            <form th:object="${sessao}" th:action="@{/carregar-confirmar-cadastrar-nova-sessao}" th:method="post">
+                <label>Dia/Hora:<input type="datetime-local" name="dataHora"></label>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <button type="button" id="botaoVoltar"><a id="linkVoltar" href="/carregar-sessoes">Voltar</a></button>
+
+        </div>
+        <div th:insert="~{menu_lateral :: menu_lateral}"></div>
+    </div>
+
+    <div th:insert="~{rodape :: rodape}"></div>
+
+</body>
+</html>
