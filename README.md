@@ -84,7 +84,14 @@ O projeto foi desenvolvido utilizando as seguintes tecnologia:
 ## 🖥️Contribuidores:
 
 -   Adelaide [https://github.com/adelaidezhayra](https://github.com/adelaidezhayra)
--   Sara[https://github.com/sara-t-g-silva)](https://github.com/sara-t-g-silva)
+-   Sara[https://github.com/sara-t-g-silva](https://github.com/sara-t-g-silva)
 -   Sayuri[ https://github.com/SayuriNishida](https://github.com/SayuriNishida)
 -   Vinícius [https://github.com/vinivilasboas](https://github.com/vinivilasboas)
 -   Viviane [https://github.com/VivianeMayumi](https://github.com/VivianeMayumi)
+
+### **Links do Protótipo:**
+### Figma
+- [Projeto Psico-Apoia-Final](https://www.figma.com/file/5Qgnlb4bif02muZjrxCVsX/PSICO-APOIA-FINAL-2%C2%AAENTREGA?type=design&node-id=0%3A1&t=yDJoWnupUdKHKgpk-1)
+
+### Youtube
+- [Projeto Psico-Apoia-Final](https://youtu.be/4eqd0aA2mSM )
